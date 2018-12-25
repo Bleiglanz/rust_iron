@@ -7,12 +7,10 @@ use iron::status;
 use params::{Params, Value};
 
 fn main() {
-    println!("Starting server at 8800...");
     Iron::new(index).http("localhost:8800").unwrap();
 }
 
 fn index(request:&mut Request) -> IronResult<Response>{
-    println!("request..");
     let map = request.get_ref::<Params>().unwrap();
     let inputnumbers = match map.find(&["numbers"]) {
         Some(&Value::String(ref numbers)) => numbers,
@@ -22,11 +20,7 @@ fn index(request:&mut Request) -> IronResult<Response>{
         Some(&Value::String(ref samples)) => samples,
         _ => "1",
     };
-
-    println!("numbers: {} samples: {}",inputnumbers,inputsamples);
-
     let result = &rust_iron::from_string_input(inputnumbers, inputsamples);
-
     let mut response = Response::new();
     response.set_mut(status::Ok);
     response.set_mut(mime!(Text/Html; Charset=Utf8));
@@ -292,6 +286,13 @@ a.pure-button-primary {
     margin :0;
     border :1;
     background:#0C0;
+}
+
+.wilf-generator {
+    padding :0;
+    margin :0;
+    border :1;
+    background:#00C;
 }
 
 .wilf-empty {
