@@ -7,7 +7,7 @@ use iron::status;
 use params::{Params, Value};
 
 fn main() {
-    Iron::new(index).http("localhost:8800").unwrap();
+    Iron::new(index).http("[::]:80").unwrap();
 }
 
 fn index(request:&mut Request) -> IronResult<Response>{
