@@ -26,34 +26,51 @@ fn gcd_vec(numbers: &[usize]) -> usize {
 
 
 pub fn from_string_input(numbers_str: &str, samples_str: &str) -> String {
-    let samples: usize = usize::from_str(samples_str.trim()).unwrap_or(1);
-    let numbers_str_vec = numbers_str.split_whitespace();
-    let input: Vec<usize> = numbers_str_vec
-        .map(|s| usize::from_str(s).unwrap_or(0))
-        .filter(|n| *n > 1)
-        .collect();
-    let wilf_set = wilf(&input);
-    let mut html = String::new();
-    let mainresult = format!(
-        "Eingabe: {:?} und {} ergibt {:?} und {}",
-        input,
-        samples,
-        wilf_set,
-        wilf_set.to_html()
-    ).to_string();
-    html.push_str(&mainresult);
     let mut rng = rand::thread_rng();
-    let mut samplecount = 0;
-    while samplecount < samples {
-        let max_gen = *wilf_set.gen_set.iter().max().unwrap();
-        let w = generate_random_input(wilf_set.g1, wilf_set.e, max_gen, &mut rng);
-        if w.e == wilf_set.e && w.g1==wilf_set.g1 && wilf_set.g1 > 1 {
-            html.push_str(&w.to_html());
-            samplecount += 1;
+    let samples: usize = usize::from_str(samples_str.trim()).unwrap_or(1);
+    let inputsets:Vec<String> = numbers_str.split(|c| c==';' || c==',' || c=='#' || c=='\n' || c=='\r').map(|s| s.trim().to_string()).filter(|s| s.len()>0).collect();
+    let mut html = String::new();
+    let mut setcounter:usize = 0;
+    let mut sampledata:Sampledata = Sampledata { g1:6, e:3, max : 20, defect:100};
+    for inputset in inputsets {
+        setcounter += 1;
+        let numbers_str_vec = inputset.split_whitespace();
+        let input: Vec<usize> = numbers_str_vec
+            .map(|s| usize::from_str(s.trim()).unwrap_or(2))
+            .filter(|n| *n > 1)
+            .collect();
+        if input.len() >= 2 {
+            let wilf_set = wilf(&input);
+            html.push_str(&wilf_set.to_html(&"Input".to_string()));
+            if 1==setcounter {
+                sampledata = Sampledata { g1: wilf_set.g1, e:wilf_set.e, max:*wilf_set.gen_set.iter().max().unwrap_or(&(wilf_set.g1+1000)), defect:wilf_set.defect};
+            }
         }
+    }
+    if 1<=setcounter {
+        addsamples(&mut html, sampledata, samples, &mut rng);
     }
     html
 }
+#[derive(Debug)]
+struct Sampledata { g1:usize, e:usize, max:usize, defect:usize}
+
+fn addsamples(html:&mut String, sampledata:Sampledata, samples:usize, rng:&mut ThreadRng){
+    let mut samplecount = 0;
+    let mut lastdefect = sampledata.defect;
+    while samplecount < samples {
+        let w = generate_random_input(sampledata.g1, sampledata.e, sampledata.max, rng);
+        if w.e == sampledata.e && w.g1==sampledata.g1 && w.g1 > 1 && w.defect<=lastdefect {
+            html.push_str(&w.to_html(&"Sample".to_string()));
+            lastdefect = w.defect;
+        } else {
+
+        }
+        samplecount += 1;
+    }
+}
+
+
 
 fn generate_random_input(g1:usize, e:usize, max:usize, rng:&mut ThreadRng) -> WilfSet {
     let mut randomsample: Vec<usize> = Vec::new();
@@ -62,7 +79,7 @@ fn generate_random_input(g1:usize, e:usize, max:usize, rng:&mut ThreadRng) -> Wi
         randomsample.clear();
         randomsample.push(g1);
         for _ in 0..e-1 {
-             randomsample.push(rng.gen_range(g1+1, max ));
+            if g1+1 < max {randomsample.push(rng.gen_range(g1+1, max ))};
         }
         gcd = gcd_vec(&randomsample);
     }
@@ -72,6 +89,7 @@ fn generate_random_input(g1:usize, e:usize, max:usize, rng:&mut ThreadRng) -> Wi
 
 #[derive(Debug)]
 struct WilfSet {
+    defect:usize,
     set: Vec<u8>,
     apery: Vec<usize>,
     max_a: usize,
@@ -84,6 +102,7 @@ struct WilfSet {
     gen_flags: Vec<usize>,
     gen_set: Vec<usize>,
     e:usize,
+    c:usize,
 }
 
 impl WilfSet {
@@ -108,6 +127,7 @@ impl WilfSet {
         assert!(g1 < min_a);
         assert_eq!(0, set.len() % g1);
         WilfSet {
+            defect: (gen_set.len() * count_set) - (max_a-g1+1),
             set: set,
             apery: apery,
             max_a: max_a,
@@ -120,15 +140,24 @@ impl WilfSet {
             gen_flags: gen_flags,
             e: gen_set.len(),
             gen_set: gen_set,
+            c : max_a - g1+1,
         }
     }
 
-    fn to_html(&self) -> String {
+    fn to_html(&self,title:&String) -> String {
         let height = self.set.len() / self.g1;
-        let defect = 2*(self.e-1)*self.max_a - self.e*self.double_avg_a-(self.e-2)*(self.g1-1);
         let mut html = String::new();
-        html.push_str(&format!("<p title=\"{:?}\">{:?} ->e={},c={},#u={},#g={}  defects=<strong>{} {}</strong></p>",
-                                           self,self.gen_set,self.e,self.maxgap+1,self.count_set, self.count_gap, defect, self.e*self.count_gap - (self.maxgap+1)));
+        html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-4-5">"#);
+        let mut copyable_genset = String::new();
+            for n in &self.gen_set {
+                copyable_genset.push_str(&n.to_string());
+                copyable_genset.push_str(" ");
+            }
+        html.push_str(&format!("<h3>{} {}</h3>",title, copyable_genset));
+        let wilfstr = &format!("<script>document.write(({}/{}).toFixed(4));</script>",self.count_set,self.c);
+        html.push_str(&format!("<p title=\"{:?}\">{:?} <strong>e</strong>={},<strong>c</strong>={},<strong>#set</strong>={},<strong>#gaps=<strong>{}  <strong>e*#set-c=</strong>{} ratio: {}</p>",
+                               self,self.gen_set,self.e,self.maxgap+1,self.count_set, self.count_gap, self.defect, wilfstr));
+
         html.push_str("<table class=\"wilf\" width=\"100%\">");
         for r in 0..height {
             html.push_str("<tr>");
@@ -160,7 +189,10 @@ impl WilfSet {
             }
             html.push_str("</tr>");
         }
-        html.push_str("</table>");
+        html.push_str("</table></div>");
+        html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-1-5"><p>"#);
+        html.push_str(&format!(" Apery {:?} <br/> Max gap {} ",self.apery,self.c-1));
+        html.push_str("</p></div>");
         html
     }
 }

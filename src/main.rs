@@ -1,13 +1,23 @@
 extern crate iron;
 extern crate params;
+extern crate dotenv;
 #[macro_use] extern crate mime;
 
 use iron::prelude::*;
 use iron::status;
 use params::{Params, Value};
+use std::env;
+
 
 fn main() {
-    Iron::new(index).http("[::]:80").unwrap();
+    dotenv::dotenv().expect("Failed to read .env file");
+    match env::var("WILFPORT") {
+        Ok(port) => {
+            Iron::new(index).http(port).unwrap();
+        }
+        Err(e) => println!("Couldn't read WILFPORT ({})", e),
+    };
+
 }
 
 fn index(request:&mut Request) -> IronResult<Response>{
@@ -352,43 +362,33 @@ a.pure-button-primary {
 <body>
 <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">WILF</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Link</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Link</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Link</a></li>
-        </ul>
+        <a class="pure-menu-heading" href="">WILF - COMPUTE NUMERICAL SEMIGROUPS</a>
     </div>
 </div>
 <div class="content-wrapper">
     <div class="content">
-        <h2 class="content-head is-center">Compute numerical Semigroups</h2>
         <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form method="post" action="/" class="pure-form pure-form-stacked">
-                    <fieldset>
+            <div class="l-box-lrg pure-u-1 pure-u-md-5-5">
+                <form method="post" action="/" class="pure-form">
                         <label for="numbers">Numbers</label>
-                        <input id="numbers" name="numbers" type="text" value=""##);
-page.push_str(inputnumbers);
-page.push_str(r##"">
-                        <label for="samples">Samples</label>
-                        <input id="samples" name="samples" type="text" value=""##);
-page.push_str(inputsamples);
-page.push_str(r##"">
+                        <textarea id="numbers" name="numbers" rows="5" cols="50">"##);
+page.push_str(inputnumbers.trim());
+page.push_str(r##"
+                        </textarea>
+                        <label for="samples">No of attempts to get smaller ratio:</label>
+                        <textarea id="samples" name="samples" rows="1" cols="8">"##);
+page.push_str(inputsamples.trim());
+page.push_str(r##"</textarea>
                         <button type="submit" class="pure-button">Compute</button>
-                    </fieldset>
                 </form>
             </div>
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+        </div>
+        <div class="pure-g">
 "##);
 page.push_str(result);
 page.push_str(r##"
-            </div>
         </div>
 
-    </div>
-    <div class="footer l-box is-center">
-         No disclaimer, nothing to do here.
     </div>
 </div>
 <script>
@@ -397,8 +397,6 @@ page.push_str(r##"
 </body>
 </html>
 "##);
-
-
     response.set_mut(page);
     Ok(response)
 }
