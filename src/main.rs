@@ -278,6 +278,14 @@ a.pure-button-primary {
     width: 100%;
 }
 
+.lambda {
+    padding : 1px;
+    margin : 1px;
+    border : thin 1px black;
+    text-align : right;
+}
+
+
 .wilf {
     padding : 0;
     margin : 0;
@@ -289,6 +297,8 @@ a.pure-button-primary {
     margin :0;
     border :1;
     background:#C00;
+    width:10px;
+    height:10px;
 }
 
 .wilf-apery {
@@ -296,6 +306,8 @@ a.pure-button-primary {
     margin :0;
     border :1;
     background:#0C0;
+    width:10px;
+    height:10px;
 }
 
 .wilf-generator {
@@ -303,6 +315,8 @@ a.pure-button-primary {
     margin :0;
     border :1;
     background:#00C;
+    width:10px;
+    height:10px;
 }
 
 .wilf-empty {
@@ -310,6 +324,8 @@ a.pure-button-primary {
     margin :0;
     border :1;
     background:#eee;
+    width:10px;
+    height:10px;
 }
 
 

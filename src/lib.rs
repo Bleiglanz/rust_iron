@@ -31,7 +31,7 @@ pub fn from_string_input(numbers_str: &str, samples_str: &str) -> String {
     let inputsets:Vec<String> = numbers_str.split(|c| c==';' || c==',' || c=='#' || c=='\n' || c=='\r').map(|s| s.trim().to_string()).filter(|s| s.len()>0).collect();
     let mut html = String::new();
     let mut setcounter:usize = 0;
-    let mut sampledata:Sampledata = Sampledata { g1:6, e:3, max : 20, defect:100};
+    let mut sampledata:Option<WilfSet> = None;
     for inputset in inputsets {
         setcounter += 1;
         let numbers_str_vec = inputset.split_whitespace();
@@ -43,43 +43,43 @@ pub fn from_string_input(numbers_str: &str, samples_str: &str) -> String {
             let wilf_set = wilf(&input);
             html.push_str(&wilf_set.to_html(&"Input".to_string()));
             if 1==setcounter {
-                sampledata = Sampledata { g1: wilf_set.g1, e:wilf_set.e, max:*wilf_set.gen_set.iter().max().unwrap_or(&(wilf_set.g1+1000)), defect:wilf_set.defect};
+                sampledata = Some(wilf_set);
             }
         }
     }
-    if 1<=setcounter {
-        addsamples(&mut html, sampledata, samples, &mut rng);
+    match sampledata {
+        Some(w) => addsamples(&mut html, &w, samples, &mut rng),
+        None => (),
     }
     html
 }
-#[derive(Debug)]
-struct Sampledata { g1:usize, e:usize, max:usize, defect:usize}
 
-fn addsamples(html:&mut String, sampledata:Sampledata, samples:usize, rng:&mut ThreadRng){
-    let mut samplecount = 0;
-    let mut lastdefect = sampledata.defect;
-    while samplecount < samples {
-        let w = generate_random_input(sampledata.g1, sampledata.e, sampledata.max, rng);
-        if w.e == sampledata.e && w.g1==sampledata.g1 && w.g1 > 1 && w.defect<=lastdefect {
+fn addsamples(html:&mut String, inputwilf:&WilfSet, samples:usize, rng:&mut ThreadRng){
+    let mut old_c = inputwilf.c;
+    let mut old_s = inputwilf.count_set;
+    for _ in 0 .. samples {
+        let w = generate_random_input(inputwilf,rng);
+        let kleiner:bool = old_c * (w.count_set) < w.c * (old_s);
+        if w.e ==inputwilf.e && w.g1==inputwilf.g1 && w.g1 > 1 && kleiner {
             html.push_str(&w.to_html(&"Sample".to_string()));
-            lastdefect = w.defect;
-        } else {
-
+            old_s=w.count_set;
+            old_c=w.c;
         }
-        samplecount += 1;
     }
 }
 
 
 
-fn generate_random_input(g1:usize, e:usize, max:usize, rng:&mut ThreadRng) -> WilfSet {
+fn generate_random_input(w:&WilfSet, rng:&mut ThreadRng) -> WilfSet {
     let mut randomsample: Vec<usize> = Vec::new();
     let mut gcd = 0;
+    let g1 = w.g1;
+    let wmax = w.c;
     while 1 != gcd {
         randomsample.clear();
         randomsample.push(g1);
-        for _ in 0..e-1 {
-            if g1+1 < max {randomsample.push(rng.gen_range(g1+1, max ))};
+        for _ in 0..w.e-1 {
+            if g1+1 < wmax {randomsample.push(rng.gen_range(g1+1, wmax ))};
         }
         gcd = gcd_vec(&randomsample);
     }
@@ -103,6 +103,7 @@ struct WilfSet {
     gen_set: Vec<usize>,
     e:usize,
     c:usize,
+    lambda_matrix:Vec<Vec<usize>>,
 }
 
 impl WilfSet {
@@ -116,7 +117,8 @@ impl WilfSet {
             .sum());
         let sum = apery.iter().sum();
         let double_avg_a = 2 * sum / apery.len();
-        let gen_flags = find_generator_flags(&apery, g1);
+        let mut tmp_lambda_matrix = vec![vec![0;g1];g1];
+        let gen_flags = find_generator_flags(&apery, g1, &mut tmp_lambda_matrix);
         let mut gen_set: Vec<usize> = Vec::new();
         for a in gen_flags.iter() {
             if *a > 0 {
@@ -141,23 +143,20 @@ impl WilfSet {
             e: gen_set.len(),
             gen_set: gen_set,
             c : max_a - g1+1,
+            lambda_matrix: tmp_lambda_matrix,
         }
     }
 
     fn to_html(&self,title:&String) -> String {
         let height = self.set.len() / self.g1;
         let mut html = String::new();
-        html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-4-5">"#);
+        html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-5-5">"#);
         let mut copyable_genset = String::new();
             for n in &self.gen_set {
                 copyable_genset.push_str(&n.to_string());
                 copyable_genset.push_str(" ");
             }
         html.push_str(&format!("<h3>{} {}</h3>",title, copyable_genset));
-        let wilfstr = &format!("<script>document.write(({}/{}).toFixed(4));</script>",self.count_set,self.c);
-        html.push_str(&format!("<p title=\"{:?}\">{:?} <strong>e</strong>={},<strong>c</strong>={},<strong>#set</strong>={},<strong>#gaps=<strong>{}  <strong>e*#set-c=</strong>{} ratio: {}</p>",
-                               self,self.gen_set,self.e,self.maxgap+1,self.count_set, self.count_gap, self.defect, wilfstr));
-
         html.push_str("<table class=\"wilf\" width=\"100%\">");
         for r in 0..height {
             html.push_str("<tr>");
@@ -189,15 +188,65 @@ impl WilfSet {
             }
             html.push_str("</tr>");
         }
-        html.push_str("</table></div>");
-        html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-1-5"><p>"#);
-        html.push_str(&format!(" Apery {:?} <br/> Max gap {} ",self.apery,self.c-1));
-        html.push_str("</p></div>");
-        html
+        html.push_str("</table><hr/><br/>");
+        // die lambda_matrix
+        html.push_str("<table class='lambda'>");
+        let mut max_apery=0;
+        let mut min_diag=self.double_avg_a;
+        for i in 0..self.g1{
+            html.push_str("<tr>");
+            let mut apery=0;
+            for j in 0..self.g1 {
+                html.push_str(&format!("<td class='lambda'>{}&nbsp</td>",self.lambda_matrix[i][j]));
+                apery += self.lambda_matrix[i][j];
+            }
+            let diag = {
+                let mut dsum =0;
+                for k in 0..self.g1 {
+                    dsum += self.lambda_matrix[k][(i+self.g1-k) % self.g1];
+                }
+                dsum
+            };
+            html.push_str(&format!("<td class='lambda'>apery[i]<strong>{}</apery></td><td>diag[i] {}</td><td>sum={}</td>",apery,diag,apery+diag));
+            if apery>=max_apery { max_apery=apery};
+            if diag<=min_diag {min_diag=diag};
+            html.push_str("</tr>");
+        }
+        html.push_str(&format!("</table></div>"));
+        let mut res_html = String::new();
+        res_html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-5-5">"#);
+        let wilfstr = &format!("<script>document.write(({}/{}).toFixed(4));</script>",self.count_set,self.c);
+        res_html.push_str(&format!("{:?} <strong>e</strong>={},<strong>c</strong>={},<strong>#set</strong>={},<strong>#gaps=</strong>{}  <strong>e*#set-c=</strong>{} ratio: {}<br/>",
+                                   self.gen_set,self.e,self.maxgap+1,self.count_set, self.count_gap, self.defect, wilfstr));
+        res_html.push_str(&format!("max_apery {} min_diag {} ",max_apery,min_diag));
+        res_html.push_str(&format!(" (e-2)*max_a {} - e*min_diag {} = &nbsp;&nbsp;{} verglichen mit (e-2)(g1-1) {}<br/>",
+                                   (self.e-2)*max_apery,self.e*min_diag, (self.e-2)*max_apery-self.e*min_diag,(self.e-2)*(self.g1-1)));
+        res_html.push_str(&format!("Apery {:?} Max gap {} double_avg {}",self.apery, self.c-1,self.double_avg_a));
+
+        let neuerinput:String = String :: new
+
+
+        res_html.push_str(&format!(r#"\n\n
+            <form method="post" action="/">
+            <input type="hidden" name="numbers" value="{}">
+            <input type="hidden" name="samples" value="100">
+            <button type="submit">hier weitermachen</button>
+            </form>\n\n
+        "#, self.apery.iter().map(|s| s.to_string())));
+        res_html.push_str("</p></div>");
+
+        if "Input"==title{
+            html.push_str(&res_html);
+            html.push_str("</div>");
+            html
+        } else {
+            res_html
+        }
+
     }
 }
 
-fn find_generator_flags(apery: &Vec<usize>, g1: usize) -> Vec<usize> {
+fn find_generator_flags(apery: &Vec<usize>, g1: usize, tmp_lambda:&mut Vec<Vec<usize>>) -> Vec<usize> {
     let len = apery.len();
     let mut gen = apery.clone();
     gen[0]=g1;
@@ -206,7 +255,8 @@ fn find_generator_flags(apery: &Vec<usize>, g1: usize) -> Vec<usize> {
             let index = (i + j) % len;
             let lambda = apery[i] + apery[j] - apery[index];
             assert!(0 == lambda % g1);
-            if 0 == lambda {
+            tmp_lambda[i][j] = lambda / g1;
+            if 0 == lambda && index>0 {
                 gen[index] = 0
             };
         }
