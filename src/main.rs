@@ -390,7 +390,7 @@ a.pure-button-primary {
                         <textarea id="numbers" name="numbers" rows="5" cols="50">"##);
 page.push_str(inputnumbers.trim());
 page.push_str(r##"
-                        </textarea>
+                        </textarea><br/>
                         <label for="samples">No of attempts to get smaller ratio:</label>
                         <textarea id="samples" name="samples" rows="1" cols="8">"##);
 page.push_str(inputsamples.trim());

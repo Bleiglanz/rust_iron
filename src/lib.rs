@@ -223,16 +223,19 @@ impl WilfSet {
                                    (self.e-2)*max_apery,self.e*min_diag, (self.e-2)*max_apery-self.e*min_diag,(self.e-2)*(self.g1-1)));
         res_html.push_str(&format!("Apery {:?} Max gap {} double_avg {}",self.apery, self.c-1,self.double_avg_a));
 
-        let neuerinput:String = String :: new
-
-
-        res_html.push_str(&format!(r#"\n\n
+        let mut neuerinput:String = String::new();
+        for u in self.gen_set.iter() {
+            neuerinput.push_str(&format!("{} ",u));			
+		}
+        res_html.push_str(&format!(r#"
+            
             <form method="post" action="/">
-            <input type="hidden" name="numbers" value="{}">
-            <input type="hidden" name="samples" value="100">
-            <button type="submit">hier weitermachen</button>
-            </form>\n\n
-        "#, self.apery.iter().map(|s| s.to_string())));
+            <input id="numbers" type="hidden" name="numbers" value="{}">
+            <input id="samples" type="hidden" name="samples" value="100">
+            <button type="submit" class="pure-button">hier weitermachen</button>
+            </form>
+            
+        "#, neuerinput));
         res_html.push_str("</p></div>");
 
         if "Input"==title{
