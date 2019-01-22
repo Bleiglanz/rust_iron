@@ -3,6 +3,9 @@ use rand::Rng;
 use rand::prelude::*;
 use std::str::FromStr;
 
+mod html;
+
+
 fn gcd(mut m: usize, mut n: usize) -> usize {
     assert!(m != 0 && n != 0);
     while m > 0 {
@@ -88,7 +91,7 @@ fn generate_random_input(w:&WilfSet, rng:&mut ThreadRng) -> WilfSet {
 
 
 #[derive(Debug)]
-struct WilfSet {
+pub struct WilfSet {
     defect:usize,
     set: Vec<u8>,
     apery: Vec<usize>,
@@ -190,7 +193,7 @@ impl WilfSet {
         }
         html.push_str("</table><hr/><br/>");
         // die lambda_matrix
-        html.push_str("<table class='lambda'>");
+        html.push_str("Apery mod g1 <table class='lambda'>");
         let mut max_apery=0;
         let mut min_diag=self.double_avg_a;
         for i in 0..self.g1{
@@ -207,12 +210,18 @@ impl WilfSet {
                 }
                 dsum
             };
-            html.push_str(&format!("<td class='lambda'>apery[i]<strong>{}</apery></td><td>diag[i] {}</td><td>sum={}</td>",apery,diag,apery+diag));
+            html.push_str(&format!("<td class='lambda'>apery[{}]<strong>{}</apery></td><td>diag[{}] {}</td><td>sum={}</td>",i,apery,i,diag,apery+diag));
             if apery>=max_apery { max_apery=apery};
             if diag<=min_diag {min_diag=diag};
             html.push_str("</tr>");
         }
         html.push_str(&format!("</table></div>"));
+
+        //
+        // neu
+        // 
+        html.push_str(&html::get_apery_for_modulus(&self,self.c));
+
         let mut res_html = String::new();
         res_html.push_str(r#"<div class="l-box-lrg pure-u-1 pure-u-md-5-5">"#);
         let wilfstr = &format!("<script>document.write(({}/{}).toFixed(4));</script>",self.count_set,self.c);
