@@ -7,16 +7,37 @@ use iron::prelude::*;
 use iron::status;
 use params::{Params, Value};
 use std::env;
+use rust_iron::WilfSet;
+use rust_iron::wilf;
+
+
+fn mainprimes(){
+    println!("Primgruppen");
+    for skip in 0..500 {
+        let primes = primal::Primes::all();
+        let mut input:Vec<usize> = Vec::new();
+        for c in primes.skip(skip).take(5000) {
+            input.push(c);
+        }
+        let res:WilfSet= wilf(&input);
+        println!("{:.4}: frobenius = {} und m={} und e={} defekt 3*m-f {}",res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e, 3*res.g1 as i64 -res.maxgap as i64);//, res.gen_set);
+    }
+}
+
 
 
 fn main() {
     dotenv::dotenv().expect("Failed to read .env file");
-    match env::var("WILFPORT") {
+    match env::var("WILFPORTS") {
         Ok(port) => {
             Iron::new(index).http(port).unwrap();
         }
-        Err(e) => println!("Couldn't read WILFPORT ({})", e),
+        Err(_) => ()//println!("Couldn't read WILFPORT ({})", e),
     };
+    match env::var("PRIMEMODE") {
+        Ok(_mode) => mainprimes(),
+        Err(_)=> println!("Couldn't read PRIMEMODE ")
+    }
 
 }
 

@@ -98,14 +98,14 @@ pub struct WilfSet {
     max_a: usize,
     sum_a: usize,
     double_avg_a: usize,
-    maxgap: usize,
-    g1: usize,
+    pub maxgap: usize,
+    pub g1: usize,
     count_set: usize,
     count_gap: usize,
     gen_flags: Vec<usize>,
-    gen_set: Vec<usize>,
-    e:usize,
-    c:usize,
+    pub gen_set: Vec<usize>,
+    pub e:usize,
+    pub c:usize,
     lambda_matrix:Vec<Vec<usize>>,
 }
 
@@ -276,7 +276,7 @@ fn find_generator_flags(apery: &Vec<usize>, g1: usize, tmp_lambda:&mut Vec<Vec<u
     gen
 }
 
-fn wilf(inputnumbers: &[usize]) -> WilfSet {
+pub fn wilf(inputnumbers: &[usize]) -> WilfSet {
     // teilerfremd machen und sortieren
     let d = gcd_vec(inputnumbers);
     let mut input: Vec<usize> = inputnumbers.iter().map(|x| (x / d) as usize).collect();
