@@ -9,19 +9,48 @@ use params::{Params, Value};
 use std::env;
 use rust_iron::WilfSet;
 use rust_iron::wilf;
+use std::collections::HashSet;
 
+use std::iter::FromIterator;
 
 fn mainprimes(){
+
     println!("Primgruppen");
-    for skip in 0..30 {
-        let primes = primal::Primes::all();
-        let mut input: Vec<usize> = Vec::new();
-        for c in primes.skip(skip).take(5000) {
-            input.push(c);
+
+    let mut last_apery:Vec<usize>  = vec![];
+
+    fn findmax6(s:&[usize],start:usize)->usize{
+        let mut max = start;
+        loop {
+            if s[max] <= 6 * s[start]{
+                max = max +1;
+            } else {
+                break;
+            }
         }
-        let res:WilfSet= wilf(&input);
-        println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4}",skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e);//, res.gen_set);
-        println!("{:?}",res.gen_set);
+        max
+    }
+
+    let primes:Vec<usize> = primal::Primes::all().take(100000).collect();
+
+    for skip in 2007..10000 {
+        let mut input: Vec<usize> = Vec::new();
+        input.extend_from_slice(&primes[skip..findmax6(&primes,skip)]);
+        let first = input[0].clone();
+        let max = first * 6;
+        let mut generators:Vec<usize> = Vec::with_capacity(input.len());
+        for g in input {
+            if g<max {generators.push(g)}
+        }
+        generators.sort();
+        generators.dedup();
+
+        let res:WilfSet= wilf(&generators);
+        println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
+                 skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e, res.c<max);//, res.gen_set);
+        //println!("{:?}",res.gen_set);
+        last_apery.clear();
+        last_apery.extend_from_slice(&res.apery[1..]);
     }
 }
 

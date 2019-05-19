@@ -94,7 +94,7 @@ fn generate_random_input(w:&WilfSet, rng:&mut ThreadRng) -> WilfSet {
 pub struct WilfSet {
     defect:usize,
     set: Vec<u8>,
-    apery: Vec<usize>,
+    pub apery: Vec<usize>,
     max_a: usize,
     sum_a: usize,
     double_avg_a: usize,

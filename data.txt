@@ -1,0 +1,1067 @@
+Primgruppen
+n=   1 bruch 0.5000: frobenius =    1 und m=   2 und e=   2 status true
+n=   2 bruch 1.3333: frobenius =    4 und m=   3 und e=   3 status true
+n=   3 bruch 1.8000: frobenius =    9 und m=   5 und e=   4 status true
+n=   4 bruch 2.2857: frobenius =   16 und m=   7 und e=   6 status true
+n=   5 bruch 2.4545: frobenius =   27 und m=  11 und e=   7 status true
+n=   6 bruch 2.6923: frobenius =   35 und m=  13 und e=   8 status true
+n=   7 bruch 2.8824: frobenius =   49 und m=  17 und e=   9 status true
+n=   8 bruch 3.3158: frobenius =   63 und m=  19 und e=  10 status true
+n=   9 bruch 2.8261: frobenius =   65 und m=  23 und e=  14 status true
+n=  10 bruch 2.9310: frobenius =   85 und m=  29 und e=  14 status true
+n=  11 bruch 3.0645: frobenius =   95 und m=  31 und e=  17 status true
+n=  12 bruch 2.8378: frobenius =  105 und m=  37 und e=  19 status true
+n=  13 bruch 2.9512: frobenius =  121 und m=  41 und e=  18 status true
+n=  14 bruch 3.1395: frobenius =  135 und m=  43 und e=  19 status true
+n=  15 bruch 3.0851: frobenius =  145 und m=  47 und e=  24 status true
+n=  16 bruch 3.1887: frobenius =  169 und m=  53 und e=  23 status true
+n=  17 bruch 2.9661: frobenius =  175 und m=  59 und e=  24 status true
+n=  18 bruch 3.0656: frobenius =  187 und m=  61 und e=  27 status true
+n=  19 bruch 3.0299: frobenius =  203 und m=  67 und e=  28 status true
+n=  20 bruch 2.9437: frobenius =  209 und m=  71 und e=  28 status true
+n=  21 bruch 3.0274: frobenius =  221 und m=  73 und e=  30 status true
+n=  22 bruch 3.2025: frobenius =  253 und m=  79 und e=  31 status true
+n=  23 bruch 3.1928: frobenius =  265 und m=  83 und e=  34 status true
+n=  24 bruch 3.0674: frobenius =  273 und m=  89 und e=  36 status true
+n=  25 bruch 2.9794: frobenius =  289 und m=  97 und e=  38 status true
+n=  26 bruch 2.9802: frobenius =  301 und m= 101 und e=  37 status true
+n=  27 bruch 2.9612: frobenius =  305 und m= 103 und e=  38 status true
+n=  28 bruch 2.9813: frobenius =  319 und m= 107 und e=  40 status true
+n=  29 bruch 3.2202: frobenius =  351 und m= 109 und e=  40 status true
+n=  30 bruch 3.2655: frobenius =  369 und m= 113 und e=  43 status true
+n=  31 bruch 3.0472: frobenius =  387 und m= 127 und e=  46 status true
+n=  32 bruch 3.0763: frobenius =  403 und m= 131 und e=  47 status true
+n=  33 bruch 2.9708: frobenius =  407 und m= 137 und e=  50 status true
+n=  34 bruch 3.0576: frobenius =  425 und m= 139 und e=  52 status true
+n=  35 bruch 2.9866: frobenius =  445 und m= 149 und e=  52 status true
+n=  36 bruch 3.1325: frobenius =  473 und m= 151 und e=  57 status true
+n=  37 bruch 3.0892: frobenius =  485 und m= 157 und e=  56 status true
+n=  38 bruch 3.0368: frobenius =  495 und m= 163 und e=  57 status true
+n=  39 bruch 3.0958: frobenius =  517 und m= 167 und e=  60 status true
+n=  40 bruch 3.0578: frobenius =  529 und m= 173 und e=  60 status true
+n=  41 bruch 3.0447: frobenius =  545 und m= 179 und e=  60 status true
+n=  42 bruch 3.0442: frobenius =  551 und m= 181 und e=  61 status true
+n=  43 bruch 2.9686: frobenius =  567 und m= 191 und e=  63 status true
+n=  44 bruch 3.1658: frobenius =  611 und m= 193 und e=  64 status true
+n=  45 bruch 3.1218: frobenius =  615 und m= 197 und e=  66 status true
+n=  46 bruch 3.1910: frobenius =  635 und m= 199 und e=  71 status true
+n=  47 bruch 3.0284: frobenius =  639 und m= 211 und e=  74 status true
+n=  48 bruch 3.0090: frobenius =  671 und m= 223 und e=  74 status true
+n=  49 bruch 2.9912: frobenius =  679 und m= 227 und e=  75 status true
+n=  50 bruch 3.0262: frobenius =  693 und m= 229 und e=  75 status true
+n=  51 bruch 3.0172: frobenius =  703 und m= 233 und e=  78 status true
+n=  52 bruch 3.0335: frobenius =  725 und m= 239 und e=  77 status true
+n=  53 bruch 3.0996: frobenius =  747 und m= 241 und e=  78 status true
+n=  54 bruch 3.1116: frobenius =  781 und m= 251 und e=  84 status true
+n=  55 bruch 3.0856: frobenius =  793 und m= 257 und e=  84 status true
+n=  56 bruch 3.0380: frobenius =  799 und m= 263 und e=  83 status true
+n=  57 bruch 2.9926: frobenius =  805 und m= 269 und e=  83 status true
+n=  58 bruch 3.0148: frobenius =  817 und m= 271 und e=  86 status true
+n=  59 bruch 3.0072: frobenius =  833 und m= 277 und e=  87 status true
+n=  60 bruch 3.0783: frobenius =  865 und m= 281 und e=  89 status true
+n=  61 bruch 3.1625: frobenius =  895 und m= 283 und e=  90 status true
+n=  62 bruch 3.1024: frobenius =  909 und m= 293 und e=  93 status true
+n=  63 bruch 3.0065: frobenius =  923 und m= 307 und e=  95 status true
+n=  64 bruch 3.0514: frobenius =  949 und m= 311 und e=  95 status true
+n=  65 bruch 3.0958: frobenius =  969 und m= 313 und e=  97 status true
+n=  66 bruch 3.1199: frobenius =  989 und m= 317 und e=  99 status true
+n=  67 bruch 3.0423: frobenius = 1007 und m= 331 und e= 104 status true
+n=  68 bruch 3.0534: frobenius = 1029 und m= 337 und e= 104 status true
+n=  69 bruch 2.9885: frobenius = 1037 und m= 347 und e= 107 status true
+n=  70 bruch 3.0172: frobenius = 1053 und m= 349 und e= 108 status true
+n=  71 bruch 3.0680: frobenius = 1083 und m= 353 und e= 110 status true
+n=  72 bruch 3.0501: frobenius = 1095 und m= 359 und e= 111 status true
+n=  73 bruch 3.0708: frobenius = 1127 und m= 367 und e= 114 status true
+n=  74 bruch 3.0375: frobenius = 1133 und m= 373 und e= 115 status true
+n=  75 bruch 3.0158: frobenius = 1143 und m= 379 und e= 116 status true
+n=  76 bruch 3.0418: frobenius = 1165 und m= 383 und e= 117 status true
+n=  77 bruch 3.0566: frobenius = 1189 und m= 389 und e= 120 status true
+n=  78 bruch 3.0453: frobenius = 1209 und m= 397 und e= 120 status true
+n=  79 bruch 3.0549: frobenius = 1225 und m= 401 und e= 121 status true
+n=  80 bruch 3.0929: frobenius = 1265 und m= 409 und e= 123 status true
+n=  81 bruch 3.0239: frobenius = 1267 und m= 419 und e= 124 status true
+n=  82 bruch 3.0190: frobenius = 1271 und m= 421 und e= 127 status true
+n=  83 bruch 2.9861: frobenius = 1287 und m= 431 und e= 128 status true
+n=  84 bruch 3.0323: frobenius = 1313 und m= 433 und e= 131 status true
+n=  85 bruch 3.0364: frobenius = 1333 und m= 439 und e= 131 status true
+n=  86 bruch 3.0497: frobenius = 1351 und m= 443 und e= 132 status true
+n=  87 bruch 3.0223: frobenius = 1357 und m= 449 und e= 131 status true
+n=  88 bruch 2.9956: frobenius = 1369 und m= 457 und e= 133 status true
+n=  89 bruch 2.9913: frobenius = 1379 und m= 461 und e= 134 status true
+n=  90 bruch 3.0907: frobenius = 1431 und m= 463 und e= 135 status true
+n=  91 bruch 3.0728: frobenius = 1435 und m= 467 und e= 141 status true
+n=  92 bruch 3.0543: frobenius = 1463 und m= 479 und e= 141 status true
+n=  93 bruch 3.0370: frobenius = 1479 und m= 487 und e= 141 status true
+n=  94 bruch 3.0448: frobenius = 1495 und m= 491 und e= 142 status true
+n=  95 bruch 3.1202: frobenius = 1557 und m= 499 und e= 145 status true
+n=  96 bruch 3.1034: frobenius = 1561 und m= 503 und e= 148 status true
+n=  97 bruch 3.0668: frobenius = 1561 und m= 509 und e= 148 status true
+n=  98 bruch 3.0614: frobenius = 1595 und m= 521 und e= 152 status true
+n=  99 bruch 3.1185: frobenius = 1631 und m= 523 und e= 157 status true
+n= 100 bruch 3.0481: frobenius = 1649 und m= 541 und e= 160 status true
+n= 101 bruch 3.0329: frobenius = 1659 und m= 547 und e= 160 status true
+n= 102 bruch 3.0287: frobenius = 1687 und m= 557 und e= 163 status true
+n= 103 bruch 3.0036: frobenius = 1691 und m= 563 und e= 163 status true
+n= 104 bruch 2.9965: frobenius = 1705 und m= 569 und e= 164 status true
+n= 105 bruch 3.0455: frobenius = 1739 und m= 571 und e= 166 status true
+n= 106 bruch 3.0312: frobenius = 1749 und m= 577 und e= 166 status true
+n= 107 bruch 3.0170: frobenius = 1771 und m= 587 und e= 170 status true
+n= 108 bruch 3.0034: frobenius = 1781 und m= 593 und e= 170 status true
+n= 109 bruch 2.9967: frobenius = 1795 und m= 599 und e= 170 status true
+n= 110 bruch 3.0433: frobenius = 1829 und m= 601 und e= 172 status true
+n= 111 bruch 3.0626: frobenius = 1859 und m= 607 und e= 171 status true
+n= 112 bruch 3.0326: frobenius = 1859 und m= 613 und e= 171 status true
+n= 113 bruch 3.0194: frobenius = 1863 und m= 617 und e= 174 status true
+n= 114 bruch 3.0614: frobenius = 1895 und m= 619 und e= 176 status true
+n= 115 bruch 3.0285: frobenius = 1911 und m= 631 und e= 178 status true
+n= 116 bruch 2.9969: frobenius = 1921 und m= 641 und e= 178 status true
+n= 117 bruch 3.0093: frobenius = 1935 und m= 643 und e= 178 status true
+n= 118 bruch 3.0340: frobenius = 1963 und m= 647 und e= 180 status true
+n= 119 bruch 3.0153: frobenius = 1969 und m= 653 und e= 179 status true
+n= 120 bruch 3.0182: frobenius = 1989 und m= 659 und e= 180 status true
+n= 121 bruch 3.0393: frobenius = 2009 und m= 661 und e= 183 status true
+n= 122 bruch 3.0773: frobenius = 2071 und m= 673 und e= 186 status true
+n= 123 bruch 3.0591: frobenius = 2071 und m= 677 und e= 189 status true
+n= 124 bruch 3.0703: frobenius = 2097 und m= 683 und e= 192 status true
+n= 125 bruch 3.0724: frobenius = 2123 und m= 691 und e= 193 status true
+n= 126 bruch 3.0428: frobenius = 2133 und m= 701 und e= 194 status true
+n= 127 bruch 3.0790: frobenius = 2183 und m= 709 und e= 198 status true
+n= 128 bruch 3.0362: frobenius = 2183 und m= 719 und e= 199 status true
+n= 129 bruch 3.0275: frobenius = 2201 und m= 727 und e= 200 status true
+n= 130 bruch 3.0437: frobenius = 2231 und m= 733 und e= 201 status true
+n= 131 bruch 3.0433: frobenius = 2249 und m= 739 und e= 200 status true
+n= 132 bruch 3.0269: frobenius = 2249 und m= 743 und e= 201 status true
+n= 133 bruch 3.0107: frobenius = 2261 und m= 751 und e= 204 status true
+n= 134 bruch 3.0238: frobenius = 2289 und m= 757 und e= 208 status true
+n= 135 bruch 3.0710: frobenius = 2337 und m= 761 und e= 208 status true
+n= 136 bruch 3.0494: frobenius = 2345 und m= 769 und e= 209 status true
+n= 137 bruch 3.0595: frobenius = 2365 und m= 773 und e= 212 status true
+n= 138 bruch 3.0330: frobenius = 2387 und m= 787 und e= 216 status true
+n= 139 bruch 3.0427: frobenius = 2425 und m= 797 und e= 220 status true
+n= 140 bruch 3.0099: frobenius = 2435 und m= 809 und e= 222 status true
+n= 141 bruch 3.0074: frobenius = 2439 und m= 811 und e= 223 status true
+n= 142 bruch 2.9976: frobenius = 2461 und m= 821 und e= 223 status true
+n= 143 bruch 3.0024: frobenius = 2471 und m= 823 und e= 223 status true
+n= 144 bruch 3.0242: frobenius = 2501 und m= 827 und e= 225 status true
+n= 145 bruch 3.0555: frobenius = 2533 und m= 829 und e= 224 status true
+n= 146 bruch 3.0358: frobenius = 2547 und m= 839 und e= 226 status true
+n= 147 bruch 3.0023: frobenius = 2561 und m= 853 und e= 229 status true
+n= 148 bruch 3.0187: frobenius = 2587 und m= 857 und e= 228 status true
+n= 149 bruch 3.0442: frobenius = 2615 und m= 859 und e= 230 status true
+n= 150 bruch 3.0348: frobenius = 2619 und m= 863 und e= 229 status true
+n= 151 bruch 2.9977: frobenius = 2629 und m= 877 und e= 234 status true
+n= 152 bruch 3.0272: frobenius = 2667 und m= 881 und e= 233 status true
+n= 153 bruch 3.0476: frobenius = 2691 und m= 883 und e= 236 status true
+n= 154 bruch 3.0406: frobenius = 2697 und m= 887 und e= 241 status true
+n= 155 bruch 3.0198: frobenius = 2739 und m= 907 und e= 245 status true
+n= 156 bruch 3.0439: frobenius = 2773 und m= 911 und e= 245 status true
+n= 157 bruch 3.0283: frobenius = 2783 und m= 919 und e= 246 status true
+n= 158 bruch 3.0560: frobenius = 2839 und m= 929 und e= 251 status true
+n= 159 bruch 3.0555: frobenius = 2863 und m= 937 und e= 252 status true
+n= 160 bruch 3.0744: frobenius = 2893 und m= 941 und e= 256 status true
+n= 161 bruch 3.0612: frobenius = 2899 und m= 947 und e= 256 status true
+n= 162 bruch 3.0672: frobenius = 2923 und m= 953 und e= 256 status true
+n= 163 bruch 3.0228: frobenius = 2923 und m= 967 und e= 258 status true
+n= 164 bruch 3.0350: frobenius = 2947 und m= 971 und e= 260 status true
+n= 165 bruch 3.0307: frobenius = 2961 und m= 977 und e= 261 status true
+n= 166 bruch 3.0326: frobenius = 2981 und m= 983 und e= 261 status true
+n= 167 bruch 3.0323: frobenius = 3005 und m= 991 und e= 265 status true
+n= 168 bruch 3.0301: frobenius = 3021 und m= 997 und e= 265 status true
+n= 169 bruch 3.0059: frobenius = 3033 und m=1009 und e= 266 status true
+n= 170 bruch 3.0039: frobenius = 3043 und m=1013 und e= 268 status true
+n= 171 bruch 3.0079: frobenius = 3065 und m=1019 und e= 268 status true
+n= 172 bruch 3.0431: frobenius = 3107 und m=1021 und e= 270 status true
+n= 173 bruch 3.0136: frobenius = 3107 und m=1031 und e= 270 status true
+n= 174 bruch 3.0252: frobenius = 3125 und m=1033 und e= 271 status true
+n= 175 bruch 3.0366: frobenius = 3155 und m=1039 und e= 271 status true
+n= 176 bruch 3.0095: frobenius = 3157 und m=1049 und e= 271 status true
+n= 177 bruch 3.0419: frobenius = 3197 und m=1051 und e= 272 status true
+n= 178 bruch 3.0207: frobenius = 3205 und m=1061 und e= 274 status true
+n= 179 bruch 3.0470: frobenius = 3239 und m=1063 und e= 277 status true
+n= 180 bruch 3.0355: frobenius = 3245 und m=1069 und e= 277 status true
+n= 181 bruch 3.0018: frobenius = 3263 und m=1087 und e= 281 status true
+n= 182 bruch 2.9963: frobenius = 3269 und m=1091 und e= 281 status true
+n= 183 bruch 3.0055: frobenius = 3285 und m=1093 und e= 281 status true
+n= 184 bruch 3.0438: frobenius = 3339 und m=1097 und e= 284 status true
+n= 185 bruch 3.0399: frobenius = 3353 und m=1103 und e= 284 status true
+n= 186 bruch 3.0343: frobenius = 3365 und m=1109 und e= 287 status true
+n= 187 bruch 3.0448: frobenius = 3401 und m=1117 und e= 293 status true
+n= 188 bruch 3.0641: frobenius = 3441 und m=1123 und e= 293 status true
+n= 189 bruch 3.0531: frobenius = 3447 und m=1129 und e= 293 status true
+n= 190 bruch 3.0243: frobenius = 3481 und m=1151 und e= 295 status true
+n= 191 bruch 3.0364: frobenius = 3501 und m=1153 und e= 297 status true
+n= 192 bruch 3.0172: frobenius = 3509 und m=1163 und e= 301 status true
+n= 193 bruch 3.0205: frobenius = 3537 und m=1171 und e= 302 status true
+n= 194 bruch 3.0288: frobenius = 3577 und m=1181 und e= 307 status true
+n= 195 bruch 3.0202: frobenius = 3585 und m=1187 und e= 307 status true
+n= 196 bruch 3.0352: frobenius = 3621 und m=1193 und e= 309 status true
+n= 197 bruch 3.0216: frobenius = 3629 und m=1201 und e= 311 status true
+n= 198 bruch 3.0049: frobenius = 3645 und m=1213 und e= 312 status true
+n= 199 bruch 3.0131: frobenius = 3667 und m=1217 und e= 314 status true
+n= 200 bruch 3.0082: frobenius = 3679 und m=1223 und e= 314 status true
+n= 201 bruch 3.0358: frobenius = 3731 und m=1229 und e= 315 status true
+n= 202 bruch 3.0406: frobenius = 3743 und m=1231 und e= 319 status true
+n= 203 bruch 3.0388: frobenius = 3759 und m=1237 und e= 320 status true
+n= 204 bruch 3.0288: frobenius = 3783 und m=1249 und e= 323 status true
+n= 205 bruch 3.0270: frobenius = 3811 und m=1259 und e= 325 status true
+n= 206 bruch 2.9984: frobenius = 3829 und m=1277 und e= 326 status true
+n= 207 bruch 3.0047: frobenius = 3843 und m=1279 und e= 326 status true
+n= 208 bruch 3.0078: frobenius = 3859 und m=1283 und e= 328 status true
+n= 209 bruch 2.9984: frobenius = 3865 und m=1289 und e= 328 status true
+n= 210 bruch 3.0108: frobenius = 3887 und m=1291 und e= 329 status true
+n= 211 bruch 3.0015: frobenius = 3893 und m=1297 und e= 329 status true
+n= 212 bruch 2.9985: frobenius = 3901 und m=1301 und e= 329 status true
+n= 213 bruch 3.0829: frobenius = 4017 und m=1303 und e= 331 status true
+n= 214 bruch 3.0842: frobenius = 4031 und m=1307 und e= 334 status true
+n= 215 bruch 3.0576: frobenius = 4033 und m=1319 und e= 335 status true
+n= 216 bruch 3.0924: frobenius = 4085 und m=1321 und e= 340 status true
+n= 217 bruch 3.0784: frobenius = 4085 und m=1327 und e= 343 status true
+n= 218 bruch 3.0309: frobenius = 4125 und m=1361 und e= 349 status true
+n= 219 bruch 3.0366: frobenius = 4151 und m=1367 und e= 349 status true
+n= 220 bruch 3.0350: frobenius = 4167 und m=1373 und e= 352 status true
+n= 221 bruch 3.0449: frobenius = 4205 und m=1381 und e= 355 status true
+n= 222 bruch 3.0300: frobenius = 4239 und m=1399 und e= 358 status true
+n= 223 bruch 3.0156: frobenius = 4249 und m=1409 und e= 360 status true
+n= 224 bruch 2.9986: frobenius = 4267 und m=1423 und e= 363 status true
+n= 225 bruch 2.9986: frobenius = 4279 und m=1427 und e= 363 status true
+n= 226 bruch 3.0112: frobenius = 4303 und m=1429 und e= 364 status true
+n= 227 bruch 3.0154: frobenius = 4321 und m=1433 und e= 364 status true
+n= 228 bruch 3.0125: frobenius = 4335 und m=1439 und e= 364 status true
+n= 229 bruch 3.0180: frobenius = 4367 und m=1447 und e= 365 status true
+n= 230 bruch 3.0179: frobenius = 4379 und m=1451 und e= 365 status true
+n= 231 bruch 3.0303: frobenius = 4403 und m=1453 und e= 370 status true
+n= 232 bruch 3.0260: frobenius = 4415 und m=1459 und e= 369 status true
+n= 233 bruch 3.0095: frobenius = 4427 und m=1471 und e= 369 status true
+n= 234 bruch 2.9973: frobenius = 4439 und m=1481 und e= 370 status true
+n= 235 bruch 2.9973: frobenius = 4445 und m=1483 und e= 371 status true
+n= 236 bruch 3.0229: frobenius = 4495 und m=1487 und e= 372 status true
+n= 237 bruch 3.0188: frobenius = 4495 und m=1489 und e= 373 status true
+n= 238 bruch 3.0429: frobenius = 4543 und m=1493 und e= 377 status true
+n= 239 bruch 3.0387: frobenius = 4555 und m=1499 und e= 379 status true
+n= 240 bruch 3.0304: frobenius = 4579 und m=1511 und e= 380 status true
+n= 241 bruch 3.0210: frobenius = 4601 und m=1523 und e= 381 status true
+n= 242 bruch 3.0248: frobenius = 4631 und m=1531 und e= 382 status true
+n= 243 bruch 3.0026: frobenius = 4633 und m=1543 und e= 384 status true
+n= 244 bruch 3.0039: frobenius = 4653 und m=1549 und e= 386 status true
+n= 245 bruch 3.0142: frobenius = 4681 und m=1553 und e= 387 status true
+n= 246 bruch 3.0218: frobenius = 4711 und m=1559 und e= 390 status true
+n= 247 bruch 3.0166: frobenius = 4727 und m=1567 und e= 390 status true
+n= 248 bruch 3.0255: frobenius = 4753 und m=1571 und e= 389 status true
+n= 249 bruch 3.0152: frobenius = 4761 und m=1579 und e= 392 status true
+n= 250 bruch 3.0139: frobenius = 4771 und m=1583 und e= 393 status true
+n= 251 bruch 3.0038: frobenius = 4797 und m=1597 und e= 395 status true
+n= 252 bruch 3.0025: frobenius = 4807 und m=1601 und e= 397 status true
+n= 253 bruch 2.9988: frobenius = 4819 und m=1607 und e= 397 status true
+n= 254 bruch 3.0037: frobenius = 4833 und m=1609 und e= 396 status true
+n= 255 bruch 3.0062: frobenius = 4849 und m=1613 und e= 396 status true
+n= 256 bruch 3.0445: frobenius = 4929 und m=1619 und e= 397 status true
+n= 257 bruch 3.0531: frobenius = 4949 und m=1621 und e= 400 status true
+n= 258 bruch 3.0602: frobenius = 4979 und m=1627 und e= 400 status true
+n= 259 bruch 3.0452: frobenius = 4985 und m=1637 und e= 400 status true
+n= 260 bruch 3.0266: frobenius = 5015 und m=1657 und e= 408 status true
+n= 261 bruch 3.0168: frobenius = 5017 und m=1663 und e= 410 status true
+n= 262 bruch 3.0288: frobenius = 5049 und m=1667 und e= 414 status true
+n= 263 bruch 3.0395: frobenius = 5073 und m=1669 und e= 415 status true
+n= 264 bruch 2.9976: frobenius = 5075 und m=1693 und e= 416 status true
+n= 265 bruch 3.0247: frobenius = 5133 und m=1697 und e= 419 status true
+n= 266 bruch 3.0235: frobenius = 5137 und m=1699 und e= 419 status true
+n= 267 bruch 3.0316: frobenius = 5181 und m=1709 und e= 420 status true
+n= 268 bruch 3.0105: frobenius = 5181 und m=1721 und e= 421 status true
+n= 269 bruch 3.0186: frobenius = 5201 und m=1723 und e= 423 status true
+n= 270 bruch 3.0104: frobenius = 5217 und m=1733 und e= 426 status true
+n= 271 bruch 3.0391: frobenius = 5291 und m=1741 und e= 433 status true
+n= 272 bruch 3.0561: frobenius = 5339 und m=1747 und e= 432 status true
+n= 273 bruch 3.0491: frobenius = 5345 und m=1753 und e= 432 status true
+n= 274 bruch 3.0387: frobenius = 5345 und m=1759 und e= 431 status true
+n= 275 bruch 3.0214: frobenius = 5369 und m=1777 und e= 432 status true
+n= 276 bruch 3.0112: frobenius = 5369 und m=1783 und e= 433 status true
+n= 277 bruch 3.0369: frobenius = 5427 und m=1787 und e= 435 status true
+n= 278 bruch 3.0347: frobenius = 5429 und m=1789 und e= 439 status true
+n= 279 bruch 3.0466: frobenius = 5487 und m=1801 und e= 440 status true
+n= 280 bruch 3.0353: frobenius = 5497 und m=1811 und e= 444 status true
+n= 281 bruch 3.0230: frobenius = 5511 und m=1823 und e= 445 status true
+n= 282 bruch 3.0295: frobenius = 5547 und m=1831 und e= 451 status true
+n= 283 bruch 3.0195: frobenius = 5577 und m=1847 und e= 452 status true
+n= 284 bruch 3.0075: frobenius = 5597 und m=1861 und e= 455 status true
+n= 285 bruch 3.0011: frobenius = 5603 und m=1867 und e= 454 status true
+n= 286 bruch 2.9989: frobenius = 5611 und m=1871 und e= 453 status true
+n= 287 bruch 3.0160: frobenius = 5649 und m=1873 und e= 452 status true
+n= 288 bruch 3.0341: frobenius = 5695 und m=1877 und e= 457 status true
+n= 289 bruch 3.0309: frobenius = 5695 und m=1879 und e= 457 status true
+n= 290 bruch 3.0498: frobenius = 5761 und m=1889 und e= 466 status true
+n= 291 bruch 3.0305: frobenius = 5761 und m=1901 und e= 466 status true
+n= 292 bruch 3.0430: frobenius = 5803 und m=1907 und e= 468 status true
+n= 293 bruch 3.0366: frobenius = 5809 und m=1913 und e= 471 status true
+n= 294 bruch 3.0166: frobenius = 5825 und m=1931 und e= 471 status true
+n= 295 bruch 3.0217: frobenius = 5841 und m=1933 und e= 473 status true
+n= 296 bruch 3.0185: frobenius = 5883 und m=1949 und e= 476 status true
+n= 297 bruch 3.0318: frobenius = 5915 und m=1951 und e= 478 status true
+n= 298 bruch 3.0112: frobenius = 5941 und m=1973 und e= 482 status true
+n= 299 bruch 3.0061: frobenius = 5949 und m=1979 und e= 482 status true
+n= 300 bruch 3.0070: frobenius = 5975 und m=1987 und e= 482 status true
+n= 301 bruch 2.9990: frobenius = 5977 und m=1993 und e= 482 status true
+n= 302 bruch 2.9990: frobenius = 5989 und m=1997 und e= 482 status true
+n= 303 bruch 3.0030: frobenius = 6003 und m=1999 und e= 483 status true
+n= 304 bruch 3.0090: frobenius = 6027 und m=2003 und e= 483 status true
+n= 305 bruch 3.0129: frobenius = 6059 und m=2011 und e= 486 status true
+n= 306 bruch 3.0129: frobenius = 6077 und m=2017 und e= 490 status true
+n= 307 bruch 3.0168: frobenius = 6115 und m=2027 und e= 491 status true
+n= 308 bruch 3.0325: frobenius = 6153 und m=2029 und e= 492 status true
+n= 309 bruch 3.0196: frobenius = 6157 und m=2039 und e= 494 status true
+n= 310 bruch 3.0117: frobenius = 6183 und m=2053 und e= 495 status true
+n= 311 bruch 3.0165: frobenius = 6223 und m=2063 und e= 499 status true
+n= 312 bruch 3.0077: frobenius = 6223 und m=2069 und e= 499 status true
+n= 313 bruch 2.9990: frobenius = 6241 und m=2081 und e= 499 status true
+n= 314 bruch 3.0010: frobenius = 6251 und m=2083 und e= 499 status true
+n= 315 bruch 3.0163: frobenius = 6295 und m=2087 und e= 501 status true
+n= 316 bruch 3.0182: frobenius = 6305 und m=2089 und e= 501 status true
+n= 317 bruch 3.0229: frobenius = 6345 und m=2099 und e= 505 status true
+n= 318 bruch 3.0076: frobenius = 6349 und m=2111 und e= 508 status true
+n= 319 bruch 3.0180: frobenius = 6377 und m=2113 und e= 511 status true
+n= 320 bruch 2.9991: frobenius = 6385 und m=2129 und e= 513 status true
+n= 321 bruch 3.0066: frobenius = 6407 und m=2131 und e= 514 status true
+n= 322 bruch 3.0318: frobenius = 6479 und m=2137 und e= 513 status true
+n= 323 bruch 3.0262: frobenius = 6479 und m=2141 und e= 515 status true
+n= 324 bruch 3.0476: frobenius = 6531 und m=2143 und e= 518 status true
+n= 325 bruch 3.0446: frobenius = 6555 und m=2153 und e= 518 status true
+n= 326 bruch 3.0342: frobenius = 6557 und m=2161 und e= 521 status true
+n= 327 bruch 3.0358: frobenius = 6615 und m=2179 und e= 525 status true
+n= 328 bruch 3.0073: frobenius = 6625 und m=2203 und e= 527 status true
+n= 329 bruch 3.0381: frobenius = 6705 und m=2207 und e= 529 status true
+n= 330 bruch 3.0298: frobenius = 6705 und m=2213 und e= 530 status true
+n= 331 bruch 3.0189: frobenius = 6705 und m=2221 und e= 532 status true
+n= 332 bruch 3.0107: frobenius = 6735 und m=2237 und e= 535 status true
+n= 333 bruch 3.0116: frobenius = 6743 und m=2239 und e= 535 status true
+n= 334 bruch 3.0160: frobenius = 6765 und m=2243 und e= 535 status true
+n= 335 bruch 3.0107: frobenius = 6777 und m=2251 und e= 539 status true
+n= 336 bruch 2.9991: frobenius = 6799 und m=2267 und e= 540 status true
+n= 337 bruch 3.0167: frobenius = 6845 und m=2269 und e= 540 status true
+n= 338 bruch 3.0114: frobenius = 6845 und m=2273 und e= 541 status true
+n= 339 bruch 3.0044: frobenius = 6853 und m=2281 und e= 546 status true
+n= 340 bruch 3.0061: frobenius = 6875 und m=2287 und e= 545 status true
+n= 341 bruch 3.0183: frobenius = 6921 und m=2293 und e= 546 status true
+n= 342 bruch 3.0226: frobenius = 6943 und m=2297 und e= 548 status true
+n= 343 bruch 3.0078: frobenius = 6945 und m=2309 und e= 550 status true
+n= 344 bruch 3.0234: frobenius = 6987 und m=2311 und e= 552 status true
+n= 345 bruch 3.0043: frobenius = 7009 und m=2333 und e= 557 status true
+n= 346 bruch 2.9991: frobenius = 7015 und m=2339 und e= 557 status true
+n= 347 bruch 3.0188: frobenius = 7067 und m=2341 und e= 559 status true
+n= 348 bruch 3.0111: frobenius = 7067 und m=2347 und e= 560 status true
+n= 349 bruch 3.0145: frobenius = 7087 und m=2351 und e= 560 status true
+n= 350 bruch 3.0127: frobenius = 7101 und m=2357 und e= 560 status true
+n= 351 bruch 3.0017: frobenius = 7117 und m=2371 und e= 563 status true
+n= 352 bruch 3.0008: frobenius = 7133 und m=2377 und e= 563 status true
+n= 353 bruch 2.9992: frobenius = 7141 und m=2381 und e= 562 status true
+n= 354 bruch 3.0101: frobenius = 7173 und m=2383 und e= 562 status true
+n= 355 bruch 3.0268: frobenius = 7231 und m=2389 und e= 564 status true
+n= 356 bruch 3.0418: frobenius = 7279 und m=2393 und e= 570 status true
+n= 357 bruch 3.0342: frobenius = 7279 und m=2399 und e= 570 status true
+n= 358 bruch 3.0440: frobenius = 7339 und m=2411 und e= 572 status true
+n= 359 bruch 3.0364: frobenius = 7339 und m=2417 und e= 571 status true
+n= 360 bruch 3.0289: frobenius = 7339 und m=2423 und e= 570 status true
+n= 361 bruch 3.0320: frobenius = 7389 und m=2437 und e= 572 status true
+n= 362 bruch 3.0270: frobenius = 7389 und m=2441 und e= 576 status true
+n= 363 bruch 3.0196: frobenius = 7389 und m=2447 und e= 576 status true
+n= 364 bruch 3.0277: frobenius = 7445 und m=2459 und e= 578 status true
+n= 365 bruch 3.0276: frobenius = 7469 und m=2467 und e= 579 status true
+n= 366 bruch 3.0412: frobenius = 7521 und m=2473 und e= 581 status true
+n= 367 bruch 3.0493: frobenius = 7553 und m=2477 und e= 586 status true
+n= 368 bruch 3.0312: frobenius = 7587 und m=2503 und e= 591 status true
+n= 369 bruch 3.0135: frobenius = 7597 und m=2521 und e= 594 status true
+n= 370 bruch 3.0087: frobenius = 7615 und m=2531 und e= 598 status true
+n= 371 bruch 3.0024: frobenius = 7623 und m=2539 und e= 597 status true
+n= 372 bruch 3.0181: frobenius = 7675 und m=2543 und e= 599 status true
+n= 373 bruch 3.0259: frobenius = 7713 und m=2549 und e= 601 status true
+n= 374 bruch 3.0235: frobenius = 7713 und m=2551 und e= 602 status true
+n= 375 bruch 3.0329: frobenius = 7755 und m=2557 und e= 605 status true
+n= 376 bruch 3.0388: frobenius = 7837 und m=2579 und e= 610 status true
+n= 377 bruch 3.0247: frobenius = 7837 und m=2591 und e= 610 status true
+n= 378 bruch 3.0224: frobenius = 7837 und m=2593 und e= 614 status true
+n= 379 bruch 3.0161: frobenius = 7869 und m=2609 und e= 615 status true
+n= 380 bruch 3.0199: frobenius = 7903 und m=2617 und e= 616 status true
+n= 381 bruch 3.0221: frobenius = 7921 und m=2621 und e= 619 status true
+n= 382 bruch 3.0175: frobenius = 7945 und m=2633 und e= 620 status true
+n= 383 bruch 3.0068: frobenius = 7959 und m=2647 und e= 622 status true
+n= 384 bruch 2.9992: frobenius = 7969 und m=2657 und e= 623 status true
+n= 385 bruch 3.0053: frobenius = 7991 und m=2659 und e= 622 status true
+n= 386 bruch 3.0068: frobenius = 8007 und m=2663 und e= 622 status true
+n= 387 bruch 3.0075: frobenius = 8033 und m=2671 und e= 625 status true
+n= 388 bruch 3.0052: frobenius = 8045 und m=2677 und e= 624 status true
+n= 389 bruch 3.0007: frobenius = 8051 und m=2683 und e= 623 status true
+n= 390 bruch 2.9985: frobenius = 8057 und m=2687 und e= 624 status true
+n= 391 bruch 3.0060: frobenius = 8083 und m=2689 und e= 624 status true
+n= 392 bruch 3.0059: frobenius = 8095 und m=2693 und e= 627 status true
+n= 393 bruch 3.0067: frobenius = 8115 und m=2699 und e= 627 status true
+n= 394 bruch 2.9993: frobenius = 8119 und m=2707 und e= 629 status true
+n= 395 bruch 2.9993: frobenius = 8131 und m=2711 und e= 629 status true
+n= 396 bruch 3.0096: frobenius = 8165 und m=2713 und e= 628 status true
+n= 397 bruch 3.0140: frobenius = 8195 und m=2719 und e= 629 status true
+n= 398 bruch 3.0198: frobenius = 8241 und m=2729 und e= 630 status true
+n= 399 bruch 3.0190: frobenius = 8245 und m=2731 und e= 632 status true
+n= 400 bruch 3.0197: frobenius = 8277 und m=2741 und e= 635 status true
+n= 401 bruch 3.0138: frobenius = 8285 und m=2749 und e= 636 status true
+n= 402 bruch 3.0203: frobenius = 8315 und m=2753 und e= 639 status true
+n= 403 bruch 3.0137: frobenius = 8339 und m=2767 und e= 642 status true
+n= 404 bruch 3.0108: frobenius = 8361 und m=2777 und e= 643 status true
+n= 405 bruch 2.9993: frobenius = 8365 und m=2789 und e= 643 status true
+n= 406 bruch 3.0029: frobenius = 8381 und m=2791 und e= 645 status true
+n= 407 bruch 3.0086: frobenius = 8415 und m=2797 und e= 646 status true
+n= 408 bruch 3.0171: frobenius = 8451 und m=2801 und e= 647 status true
+n= 409 bruch 3.0157: frobenius = 8453 und m=2803 und e= 649 status true
+n= 410 bruch 3.0206: frobenius = 8515 und m=2819 und e= 651 status true
+n= 411 bruch 3.0056: frobenius = 8515 und m=2833 und e= 650 status true
+n= 412 bruch 3.0078: frobenius = 8533 und m=2837 und e= 652 status true
+n= 413 bruch 3.0197: frobenius = 8585 und m=2843 und e= 652 status true
+n= 414 bruch 3.0210: frobenius = 8613 und m=2851 und e= 653 status true
+n= 415 bruch 3.0308: frobenius = 8659 und m=2857 und e= 657 status true
+n= 416 bruch 3.0496: frobenius = 8725 und m=2861 und e= 661 status true
+n= 417 bruch 3.0306: frobenius = 8725 und m=2879 und e= 662 status true
+n= 418 bruch 3.0222: frobenius = 8725 und m=2887 und e= 664 status true
+n= 419 bruch 3.0221: frobenius = 8755 und m=2897 und e= 669 status true
+n= 420 bruch 3.0262: frobenius = 8785 und m=2903 und e= 670 status true
+n= 421 bruch 3.0199: frobenius = 8785 und m=2909 und e= 672 status true
+n= 422 bruch 3.0165: frobenius = 8799 und m=2917 und e= 673 status true
+n= 423 bruch 3.0260: frobenius = 8857 und m=2927 und e= 676 status true
+n= 424 bruch 3.0136: frobenius = 8857 und m=2939 und e= 678 status true
+n= 425 bruch 3.0020: frobenius = 8865 und m=2953 und e= 680 status true
+n= 426 bruch 3.0156: frobenius = 8917 und m=2957 und e= 684 status true
+n= 427 bruch 3.0196: frobenius = 8947 und m=2963 und e= 684 status true
+n= 428 bruch 3.0263: frobenius = 8985 und m=2969 und e= 684 status true
+n= 429 bruch 3.0343: frobenius = 9015 und m=2971 und e= 685 status true
+n= 430 bruch 3.0100: frobenius = 9027 und m=2999 und e= 688 status true
+n= 431 bruch 3.0247: frobenius = 9077 und m=3001 und e= 691 status true
+n= 432 bruch 3.0159: frobenius = 9081 und m=3011 und e= 692 status true
+n= 433 bruch 3.0106: frobenius = 9089 und m=3019 und e= 696 status true
+n= 434 bruch 3.0159: frobenius = 9117 und m=3023 und e= 697 status true
+n= 435 bruch 3.0145: frobenius = 9155 und m=3037 und e= 698 status true
+n= 436 bruch 3.0145: frobenius = 9167 und m=3041 und e= 698 status true
+n= 437 bruch 3.0164: frobenius = 9197 und m=3049 und e= 703 status true
+n= 438 bruch 3.0294: frobenius = 9273 und m=3061 und e= 706 status true
+n= 439 bruch 3.0235: frobenius = 9273 und m=3067 und e= 706 status true
+n= 440 bruch 3.0117: frobenius = 9273 und m=3079 und e= 706 status true
+n= 441 bruch 3.0182: frobenius = 9305 und m=3083 und e= 710 status true
+n= 442 bruch 3.0278: frobenius = 9353 und m=3089 und e= 713 status true
+n= 443 bruch 3.0199: frobenius = 9389 und m=3109 und e= 715 status true
+n= 444 bruch 3.0250: frobenius = 9435 und m=3119 und e= 719 status true
+n= 445 bruch 3.0231: frobenius = 9435 und m=3121 und e= 722 status true
+n= 446 bruch 3.0153: frobenius = 9459 und m=3137 und e= 725 status true
+n= 447 bruch 3.0063: frobenius = 9509 und m=3163 und e= 730 status true
+n= 448 bruch 3.0038: frobenius = 9513 und m=3167 und e= 732 status true
+n= 449 bruch 3.0158: frobenius = 9557 und m=3169 und e= 733 status true
+n= 450 bruch 3.0075: frobenius = 9567 und m=3181 und e= 734 status true
+n= 451 bruch 3.0088: frobenius = 9589 und m=3187 und e= 734 status true
+n= 452 bruch 3.0107: frobenius = 9607 und m=3191 und e= 737 status true
+n= 453 bruch 3.0050: frobenius = 9625 und m=3203 und e= 736 status true
+n= 454 bruch 3.0143: frobenius = 9673 und m=3209 und e= 739 status true
+n= 455 bruch 3.0099: frobenius = 9683 und m=3217 und e= 740 status true
+n= 456 bruch 3.0130: frobenius = 9705 und m=3221 und e= 742 status true
+n= 457 bruch 3.0341: frobenius = 9797 und m=3229 und e= 745 status true
+n= 458 bruch 3.0135: frobenius = 9797 und m=3251 und e= 747 status true
+n= 459 bruch 3.0117: frobenius = 9797 und m=3253 und e= 747 status true
+n= 460 bruch 3.0117: frobenius = 9809 und m=3257 und e= 750 status true
+n= 461 bruch 3.0301: frobenius = 9875 und m=3259 und e= 753 status true
+n= 462 bruch 3.0208: frobenius = 9881 und m=3271 und e= 757 status true
+n= 463 bruch 2.9994: frobenius = 9895 und m=3299 und e= 758 status true
+n= 464 bruch 3.0097: frobenius = 9935 und m=3301 und e= 762 status true
+n= 465 bruch 3.0079: frobenius = 9947 und m=3307 und e= 762 status true
+n= 466 bruch 3.0042: frobenius = 9953 und m=3313 und e= 761 status true
+n= 467 bruch 3.0018: frobenius = 9963 und m=3319 und e= 761 status true
+n= 468 bruch 3.0030: frobenius = 9979 und m=3323 und e= 762 status true
+n= 469 bruch 3.0120: frobenius = 10027 und m=3329 und e= 761 status true
+n= 470 bruch 3.0234: frobenius = 10071 und m=3331 und e= 761 status true
+n= 471 bruch 3.0126: frobenius = 10071 und m=3343 und e= 762 status true
+n= 472 bruch 3.0137: frobenius = 10087 und m=3347 und e= 763 status true
+n= 473 bruch 3.0060: frobenius = 10097 und m=3359 und e= 765 status true
+n= 474 bruch 3.0232: frobenius = 10161 und m=3361 und e= 766 status true
+n= 475 bruch 3.0208: frobenius = 10183 und m=3371 und e= 772 status true
+n= 476 bruch 3.0243: frobenius = 10201 und m=3373 und e= 772 status true
+n= 477 bruch 3.0171: frobenius = 10225 und m=3389 und e= 775 status true
+n= 478 bruch 3.0201: frobenius = 10241 und m=3391 und e= 776 status true
+n= 479 bruch 3.0205: frobenius = 10291 und m=3407 und e= 778 status true
+n= 480 bruch 3.0193: frobenius = 10305 und m=3413 und e= 783 status true
+n= 481 bruch 3.0122: frobenius = 10341 und m=3433 und e= 787 status true
+n= 482 bruch 3.0017: frobenius = 10353 und m=3449 und e= 790 status true
+n= 483 bruch 3.0006: frobenius = 10373 und m=3457 und e= 790 status true
+n= 484 bruch 3.0081: frobenius = 10411 und m=3461 und e= 789 status true
+n= 485 bruch 3.0144: frobenius = 10439 und m=3463 und e= 789 status true
+n= 486 bruch 3.0121: frobenius = 10443 und m=3467 und e= 789 status true
+n= 487 bruch 3.0283: frobenius = 10505 und m=3469 und e= 793 status true
+n= 488 bruch 3.0092: frobenius = 10505 und m=3491 und e= 796 status true
+n= 489 bruch 3.0143: frobenius = 10547 und m=3499 und e= 799 status true
+n= 490 bruch 3.0057: frobenius = 10553 und m=3511 und e= 800 status true
+n= 491 bruch 3.0051: frobenius = 10569 und m=3517 und e= 799 status true
+n= 492 bruch 2.9994: frobenius = 10579 und m=3527 und e= 799 status true
+n= 493 bruch 3.0017: frobenius = 10593 und m=3529 und e= 799 status true
+n= 494 bruch 3.0028: frobenius = 10609 und m=3533 und e= 800 status true
+n= 495 bruch 2.9994: frobenius = 10615 und m=3539 und e= 802 status true
+n= 496 bruch 3.0073: frobenius = 10649 und m=3541 und e= 803 status true
+n= 497 bruch 3.0209: frobenius = 10715 und m=3547 und e= 805 status true
+n= 498 bruch 3.0129: frobenius = 10717 und m=3557 und e= 806 status true
+n= 499 bruch 3.0208: frobenius = 10751 und m=3559 und e= 809 status true
+n= 500 bruch 3.0140: frobenius = 10763 und m=3571 und e= 810 status true
+n= 501 bruch 3.0061: frobenius = 10765 und m=3581 und e= 811 status true
+n= 502 bruch 3.0184: frobenius = 10815 und m=3583 und e= 812 status true
+n= 503 bruch 3.0156: frobenius = 10835 und m=3593 und e= 812 status true
+n= 504 bruch 3.0039: frobenius = 10835 und m=3607 und e= 812 status true
+n= 505 bruch 3.0044: frobenius = 10855 und m=3613 und e= 813 status true
+n= 506 bruch 3.0177: frobenius = 10915 und m=3617 und e= 817 status true
+n= 507 bruch 3.0127: frobenius = 10915 und m=3623 und e= 816 status true
+n= 508 bruch 3.0138: frobenius = 10943 und m=3631 und e= 821 status true
+n= 509 bruch 3.0088: frobenius = 10943 und m=3637 und e= 821 status true
+n= 510 bruch 3.0143: frobenius = 10981 und m=3643 und e= 821 status true
+n= 511 bruch 3.0093: frobenius = 11011 und m=3659 und e= 825 status true
+n= 512 bruch 3.0044: frobenius = 11029 und m=3671 und e= 825 status true
+n= 513 bruch 3.0093: frobenius = 11053 und m=3673 und e= 825 status true
+n= 514 bruch 3.0098: frobenius = 11067 und m=3677 und e= 826 status true
+n= 515 bruch 3.0135: frobenius = 11123 und m=3691 und e= 829 status true
+n= 516 bruch 3.0087: frobenius = 11123 und m=3697 und e= 830 status true
+n= 517 bruch 3.0216: frobenius = 11183 und m=3701 und e= 832 status true
+n= 518 bruch 3.0200: frobenius = 11201 und m=3709 und e= 834 status true
+n= 519 bruch 3.0140: frobenius = 11209 und m=3719 und e= 834 status true
+n= 520 bruch 3.0150: frobenius = 11237 und m=3727 und e= 839 status true
+n= 521 bruch 3.0145: frobenius = 11253 und m=3733 und e= 838 status true
+n= 522 bruch 3.0128: frobenius = 11265 und m=3739 und e= 838 status true
+n= 523 bruch 3.0027: frobenius = 11293 und m=3761 und e= 844 status true
+n= 524 bruch 3.0345: frobenius = 11431 und m=3767 und e= 845 status true
+n= 525 bruch 3.0329: frobenius = 11431 und m=3769 und e= 846 status true
+n= 526 bruch 3.0249: frobenius = 11431 und m=3779 und e= 846 status true
+n= 527 bruch 3.0200: frobenius = 11455 und m=3793 und e= 847 status true
+n= 528 bruch 3.0248: frobenius = 11485 und m=3797 und e= 851 status true
+n= 529 bruch 3.0268: frobenius = 11511 und m=3803 und e= 852 status true
+n= 530 bruch 3.0126: frobenius = 11511 und m=3821 und e= 854 status true
+n= 531 bruch 3.0120: frobenius = 11515 und m=3823 und e= 855 status true
+n= 532 bruch 3.0068: frobenius = 11525 und m=3833 und e= 857 status true
+n= 533 bruch 3.0005: frobenius = 11543 und m=3847 und e= 858 status true
+n= 534 bruch 3.0125: frobenius = 11601 und m=3851 und e= 859 status true
+n= 535 bruch 3.0130: frobenius = 11609 und m=3853 und e= 858 status true
+n= 536 bruch 3.0166: frobenius = 11653 und m=3863 und e= 861 status true
+n= 537 bruch 3.0083: frobenius = 11663 und m=3877 und e= 864 status true
+n= 538 bruch 3.0103: frobenius = 11683 und m=3881 und e= 863 status true
+n= 539 bruch 3.0098: frobenius = 11705 und m=3889 und e= 865 status true
+n= 540 bruch 3.0015: frobenius = 11727 und m=3907 und e= 868 status true
+n= 541 bruch 3.0010: frobenius = 11737 und m=3911 und e= 869 status true
+n= 542 bruch 2.9995: frobenius = 11749 und m=3917 und e= 868 status true
+n= 543 bruch 3.0138: frobenius = 11811 und m=3919 und e= 867 status true
+n= 544 bruch 3.0107: frobenius = 11811 und m=3923 und e= 868 status true
+n= 545 bruch 3.0173: frobenius = 11855 und m=3929 und e= 870 status true
+n= 546 bruch 3.0204: frobenius = 11873 und m=3931 und e= 874 status true
+n= 547 bruch 3.0228: frobenius = 11919 und m=3943 und e= 876 status true
+n= 548 bruch 3.0228: frobenius = 11931 und m=3947 und e= 878 status true
+n= 549 bruch 3.0161: frobenius = 11965 und m=3967 und e= 882 status true
+n= 550 bruch 3.0085: frobenius = 12001 und m=3989 und e= 888 status true
+n= 551 bruch 2.9995: frobenius = 12001 und m=4001 und e= 888 status true
+n= 552 bruch 3.0015: frobenius = 12015 und m=4003 und e= 889 status true
+n= 553 bruch 3.0025: frobenius = 12031 und m=4007 und e= 890 status true
+n= 554 bruch 3.0100: frobenius = 12079 und m=4013 und e= 894 status true
+n= 555 bruch 3.0070: frobenius = 12085 und m=4019 und e= 894 status true
+n= 556 bruch 3.0184: frobenius = 12137 und m=4021 und e= 895 status true
+n= 557 bruch 3.0144: frobenius = 12139 und m=4027 und e= 898 status true
+n= 558 bruch 3.0089: frobenius = 12183 und m=4049 und e= 897 status true
+n= 559 bruch 3.0094: frobenius = 12191 und m=4051 und e= 900 status true
+n= 560 bruch 3.0153: frobenius = 12233 und m=4057 und e= 900 status true
+n= 561 bruch 3.0118: frobenius = 12267 und m=4073 und e= 903 status true
+n= 562 bruch 3.0074: frobenius = 12267 und m=4079 und e= 903 status true
+n= 563 bruch 3.0083: frobenius = 12307 und m=4091 und e= 905 status true
+n= 564 bruch 3.0151: frobenius = 12341 und m=4093 und e= 910 status true
+n= 565 bruch 3.0117: frobenius = 12345 und m=4099 und e= 910 status true
+n= 566 bruch 3.0073: frobenius = 12363 und m=4111 und e= 910 status true
+n= 567 bruch 3.0053: frobenius = 12403 und m=4127 und e= 912 status true
+n= 568 bruch 3.0179: frobenius = 12461 und m=4129 und e= 914 status true
+n= 569 bruch 3.0198: frobenius = 12481 und m=4133 und e= 916 status true
+n= 570 bruch 3.0213: frobenius = 12505 und m=4139 und e= 915 status true
+n= 571 bruch 3.0120: frobenius = 12509 und m=4153 und e= 920 status true
+n= 572 bruch 3.0125: frobenius = 12523 und m=4157 und e= 922 status true
+n= 573 bruch 3.0236: frobenius = 12575 und m=4159 und e= 927 status true
+n= 574 bruch 3.0148: frobenius = 12593 und m=4177 und e= 930 status true
+n= 575 bruch 3.0057: frobenius = 12627 und m=4201 und e= 932 status true
+n= 576 bruch 3.0024: frobenius = 12643 und m=4211 und e= 934 status true
+n= 577 bruch 3.0081: frobenius = 12685 und m=4217 und e= 937 status true
+n= 578 bruch 3.0090: frobenius = 12695 und m=4219 und e= 937 status true
+n= 579 bruch 3.0052: frobenius = 12709 und m=4229 und e= 937 status true
+n= 580 bruch 3.0061: frobenius = 12719 und m=4231 und e= 937 status true
+n= 581 bruch 3.0066: frobenius = 12751 und m=4241 und e= 939 status true
+n= 582 bruch 3.0057: frobenius = 12753 und m=4243 und e= 939 status true
+n= 583 bruch 3.0024: frobenius = 12769 und m=4253 und e= 941 status true
+n= 584 bruch 3.0047: frobenius = 12797 und m=4259 und e= 941 status true
+n= 585 bruch 3.0042: frobenius = 12801 und m=4261 und e= 943 status true
+n= 586 bruch 3.0080: frobenius = 12847 und m=4271 und e= 944 status true
+n= 587 bruch 3.0159: frobenius = 12887 und m=4273 und e= 944 status true
+n= 588 bruch 3.0121: frobenius = 12901 und m=4283 und e= 946 status true
+n= 589 bruch 3.0187: frobenius = 12947 und m=4289 und e= 950 status true
+n= 590 bruch 3.0228: frobenius = 12989 und m=4297 und e= 955 status true
+n= 591 bruch 3.0088: frobenius = 13019 und m=4327 und e= 959 status true
+n= 592 bruch 3.0161: frobenius = 13081 und m=4337 und e= 960 status true
+n= 593 bruch 3.0171: frobenius = 13091 und m=4339 und e= 962 status true
+n= 594 bruch 3.0179: frobenius = 13125 und m=4349 und e= 962 status true
+n= 595 bruch 3.0138: frobenius = 13131 und m=4357 und e= 962 status true
+n= 596 bruch 3.0174: frobenius = 13165 und m=4363 und e= 965 status true
+n= 597 bruch 3.0256: frobenius = 13231 und m=4373 und e= 974 status true
+n= 598 bruch 3.0132: frobenius = 13231 und m=4391 und e= 975 status true
+n= 599 bruch 3.0105: frobenius = 13237 und m=4397 und e= 974 status true
+n= 600 bruch 3.0077: frobenius = 13261 und m=4409 und e= 975 status true
+n= 601 bruch 3.0041: frobenius = 13281 und m=4421 und e= 976 status true
+n= 602 bruch 3.0113: frobenius = 13319 und m=4423 und e= 978 status true
+n= 603 bruch 3.0054: frobenius = 13347 und m=4441 und e= 982 status true
+n= 604 bruch 3.0063: frobenius = 13369 und m=4447 und e= 983 status true
+n= 605 bruch 3.0184: frobenius = 13435 und m=4451 und e= 985 status true
+n= 606 bruch 3.0144: frobenius = 13435 und m=4457 und e= 986 status true
+n= 607 bruch 3.0103: frobenius = 13435 und m=4463 und e= 987 status true
+n= 608 bruch 3.0049: frobenius = 13465 und m=4481 und e= 988 status true
+n= 609 bruch 3.0138: frobenius = 13511 und m=4483 und e= 990 status true
+n= 610 bruch 3.0080: frobenius = 13515 und m=4493 und e= 990 status true
+n= 611 bruch 3.0031: frobenius = 13535 und m=4507 und e= 992 status true
+n= 612 bruch 3.0071: frobenius = 13571 und m=4513 und e= 993 status true
+n= 613 bruch 3.0062: frobenius = 13579 und m=4517 und e= 993 status true
+n= 614 bruch 3.0146: frobenius = 13623 und m=4519 und e= 994 status true
+n= 615 bruch 3.0146: frobenius = 13635 und m=4523 und e= 995 status true
+n= 616 bruch 3.0136: frobenius = 13703 und m=4547 und e= 999 status true
+n= 617 bruch 3.0215: frobenius = 13745 und m=4549 und e=1005 status true
+n= 618 bruch 3.0202: frobenius = 13775 und m=4561 und e=1008 status true
+n= 619 bruch 3.0162: frobenius = 13775 und m=4567 und e=1010 status true
+n= 620 bruch 3.0096: frobenius = 13793 und m=4583 und e=1010 status true
+n= 621 bruch 3.0174: frobenius = 13853 und m=4591 und e=1016 status true
+n= 622 bruch 3.0161: frobenius = 13865 und m=4597 und e=1015 status true
+n= 623 bruch 3.0135: frobenius = 13871 und m=4603 und e=1015 status true
+n= 624 bruch 3.0056: frobenius = 13889 und m=4621 und e=1017 status true
+n= 625 bruch 2.9996: frobenius = 13909 und m=4637 und e=1020 status true
+n= 626 bruch 3.0013: frobenius = 13923 und m=4639 und e=1020 status true
+n= 627 bruch 3.0022: frobenius = 13939 und m=4643 und e=1022 status true
+n= 628 bruch 2.9996: frobenius = 13945 und m=4649 und e=1022 status true
+n= 629 bruch 3.0129: frobenius = 14013 und m=4651 und e=1022 status true
+n= 630 bruch 3.0090: frobenius = 14013 und m=4657 und e=1022 status true
+n= 631 bruch 3.0137: frobenius = 14053 und m=4663 und e=1023 status true
+n= 632 bruch 3.0201: frobenius = 14113 und m=4673 und e=1030 status true
+n= 633 bruch 3.0175: frobenius = 14119 und m=4679 und e=1029 status true
+n= 634 bruch 3.0166: frobenius = 14151 und m=4691 und e=1030 status true
+n= 635 bruch 3.0089: frobenius = 14151 und m=4703 und e=1030 status true
+n= 636 bruch 3.0119: frobenius = 14219 und m=4721 und e=1032 status true
+n= 637 bruch 3.0144: frobenius = 14237 und m=4723 und e=1033 status true
+n= 638 bruch 3.0106: frobenius = 14237 und m=4729 und e=1034 status true
+n= 639 bruch 3.0186: frobenius = 14287 und m=4733 und e=1034 status true
+n= 640 bruch 3.0126: frobenius = 14313 und m=4751 und e=1037 status true
+n= 641 bruch 3.0080: frobenius = 14315 und m=4759 und e=1041 status true
+n= 642 bruch 3.0004: frobenius = 14351 und m=4783 und e=1042 status true
+n= 643 bruch 2.9996: frobenius = 14359 und m=4787 und e=1041 status true
+n= 644 bruch 3.0013: frobenius = 14373 und m=4789 und e=1041 status true
+n= 645 bruch 3.0088: frobenius = 14421 und m=4793 und e=1041 status true
+n= 646 bruch 3.0242: frobenius = 14513 und m=4799 und e=1044 status true
+n= 647 bruch 3.0267: frobenius = 14531 und m=4801 und e=1045 status true
+n= 648 bruch 3.0312: frobenius = 14589 und m=4813 und e=1048 status true
+n= 649 bruch 3.0286: frobenius = 14589 und m=4817 und e=1051 status true
+n= 650 bruch 3.0236: frobenius = 14607 und m=4831 und e=1056 status true
+n= 651 bruch 3.0082: frobenius = 14623 und m=4861 und e=1061 status true
+n= 652 bruch 3.0119: frobenius = 14671 und m=4871 und e=1065 status true
+n= 653 bruch 3.0127: frobenius = 14693 und m=4877 und e=1064 status true
+n= 654 bruch 3.0135: frobenius = 14733 und m=4889 und e=1068 status true
+n= 655 bruch 3.0053: frobenius = 14735 und m=4903 und e=1069 status true
+n= 656 bruch 3.0073: frobenius = 14763 und m=4909 und e=1072 status true
+n= 657 bruch 3.0069: frobenius = 14791 und m=4919 und e=1075 status true
+n= 658 bruch 2.9996: frobenius = 14791 und m=4931 und e=1076 status true
+n= 659 bruch 3.0032: frobenius = 14815 und m=4933 und e=1076 status true
+n= 660 bruch 3.0049: frobenius = 14835 und m=4937 und e=1078 status true
+n= 661 bruch 3.0040: frobenius = 14849 und m=4943 und e=1078 status true
+n= 662 bruch 3.0040: frobenius = 14873 und m=4951 und e=1081 status true
+n= 663 bruch 3.0036: frobenius = 14889 und m=4957 und e=1081 status true
+n= 664 bruch 3.0032: frobenius = 14917 und m=4967 und e=1083 status true
+n= 665 bruch 3.0040: frobenius = 14927 und m=4969 und e=1083 status true
+n= 666 bruch 3.0048: frobenius = 14943 und m=4973 und e=1084 status true
+n= 667 bruch 3.0052: frobenius = 14987 und m=4987 und e=1087 status true
+n= 668 bruch 3.0028: frobenius = 14993 und m=4993 und e=1087 status true
+n= 669 bruch 3.0012: frobenius = 15003 und m=4999 und e=1086 status true
+n= 670 bruch 3.0020: frobenius = 15019 und m=5003 und e=1086 status true
+n= 671 bruch 3.0096: frobenius = 15075 und m=5009 und e=1086 status true
+n= 672 bruch 3.0108: frobenius = 15087 und m=5011 und e=1088 status true
+n= 673 bruch 3.0143: frobenius = 15135 und m=5021 und e=1091 status true
+n= 674 bruch 3.0131: frobenius = 15135 und m=5023 und e=1092 status true
+n= 675 bruch 3.0127: frobenius = 15181 und m=5039 und e=1095 status true
+n= 676 bruch 3.0107: frobenius = 15207 und m=5051 und e=1097 status true
+n= 677 bruch 3.0103: frobenius = 15229 und m=5059 und e=1098 status true
+n= 678 bruch 3.0032: frobenius = 15247 und m=5077 und e=1101 status true
+n= 679 bruch 3.0197: frobenius = 15343 und m=5081 und e=1104 status true
+n= 680 bruch 3.0161: frobenius = 15343 und m=5087 und e=1106 status true
+n= 681 bruch 3.0129: frobenius = 15363 und m=5099 und e=1107 status true
+n= 682 bruch 3.0169: frobenius = 15389 und m=5101 und e=1114 status true
+n= 683 bruch 3.0145: frobenius = 15395 und m=5107 und e=1114 status true
+n= 684 bruch 3.0110: frobenius = 15395 und m=5113 und e=1115 status true
+n= 685 bruch 3.0180: frobenius = 15449 und m=5119 und e=1115 status true
+n= 686 bruch 3.0152: frobenius = 15519 und m=5147 und e=1120 status true
+n= 687 bruch 3.0116: frobenius = 15519 und m=5153 und e=1123 status true
+n= 688 bruch 3.0120: frobenius = 15563 und m=5167 und e=1125 status true
+n= 689 bruch 3.0112: frobenius = 15571 und m=5171 und e=1125 status true
+n= 690 bruch 3.0108: frobenius = 15593 und m=5179 und e=1128 status true
+n= 691 bruch 3.0062: frobenius = 15599 und m=5189 und e=1129 status true
+n= 692 bruch 3.0119: frobenius = 15653 und m=5197 und e=1133 status true
+n= 693 bruch 3.0073: frobenius = 15665 und m=5209 und e=1134 status true
+n= 694 bruch 3.0069: frobenius = 15717 und m=5227 und e=1138 status true
+n= 695 bruch 3.0214: frobenius = 15805 und m=5231 und e=1138 status true
+n= 696 bruch 3.0203: frobenius = 15805 und m=5233 und e=1139 status true
+n= 697 bruch 3.0271: frobenius = 15853 und m=5237 und e=1147 status true
+n= 698 bruch 3.0133: frobenius = 15853 und m=5261 und e=1148 status true
+n= 699 bruch 3.0064: frobenius = 15853 und m=5273 und e=1150 status true
+n= 700 bruch 3.0030: frobenius = 15853 und m=5279 und e=1151 status true
+n= 701 bruch 3.0117: frobenius = 15905 und m=5281 und e=1150 status true
+n= 702 bruch 3.0234: frobenius = 16015 und m=5297 und e=1156 status true
+n= 703 bruch 3.0200: frobenius = 16015 und m=5303 und e=1158 status true
+n= 704 bruch 3.0166: frobenius = 16015 und m=5309 und e=1160 status true
+n= 705 bruch 3.0113: frobenius = 16029 und m=5323 und e=1159 status true
+n= 706 bruch 3.0105: frobenius = 16055 und m=5333 und e=1163 status true
+n= 707 bruch 3.0153: frobenius = 16123 und m=5347 und e=1166 status true
+n= 708 bruch 3.0198: frobenius = 16159 und m=5351 und e=1171 status true
+n= 709 bruch 3.0063: frobenius = 16177 und m=5381 und e=1173 status true
+n= 710 bruch 3.0063: frobenius = 16195 und m=5387 und e=1172 status true
+n= 711 bruch 3.0041: frobenius = 16201 und m=5393 und e=1172 status true
+n= 712 bruch 3.0022: frobenius = 16209 und m=5399 und e=1172 status true
+n= 713 bruch 3.0070: frobenius = 16259 und m=5407 und e=1174 status true
+n= 714 bruch 3.0037: frobenius = 16259 und m=5413 und e=1174 status true
+n= 715 bruch 3.0022: frobenius = 16263 und m=5417 und e=1174 status true
+n= 716 bruch 3.0092: frobenius = 16307 und m=5419 und e=1176 status true
+n= 717 bruch 3.0081: frobenius = 16337 und m=5431 und e=1176 status true
+n= 718 bruch 3.0059: frobenius = 16343 und m=5437 und e=1175 status true
+n= 719 bruch 3.0103: frobenius = 16379 und m=5441 und e=1176 status true
+n= 720 bruch 3.0099: frobenius = 16383 und m=5443 und e=1178 status true
+n= 721 bruch 3.0088: frobenius = 16395 und m=5449 und e=1178 status true
+n= 722 bruch 3.0018: frobenius = 16423 und m=5471 und e=1182 status true
+n= 723 bruch 3.0117: frobenius = 16495 und m=5477 und e=1185 status true
+n= 724 bruch 3.0106: frobenius = 16495 und m=5479 und e=1185 status true
+n= 725 bruch 3.0095: frobenius = 16501 und m=5483 und e=1187 status true
+n= 726 bruch 2.9996: frobenius = 16501 und m=5501 und e=1188 status true
+n= 727 bruch 3.0055: frobenius = 16539 und m=5503 und e=1187 status true
+n= 728 bruch 3.0054: frobenius = 16551 und m=5507 und e=1187 status true
+n= 729 bruch 3.0062: frobenius = 16591 und m=5519 und e=1188 status true
+n= 730 bruch 3.0167: frobenius = 16655 und m=5521 und e=1191 status true
+n= 731 bruch 3.0134: frobenius = 16655 und m=5527 und e=1192 status true
+n= 732 bruch 3.0188: frobenius = 16697 und m=5531 und e=1192 status true
+n= 733 bruch 3.0155: frobenius = 16757 und m=5557 und e=1199 status true
+n= 734 bruch 3.0122: frobenius = 16757 und m=5563 und e=1200 status true
+n= 735 bruch 3.0122: frobenius = 16775 und m=5569 und e=1201 status true
+n= 736 bruch 3.0129: frobenius = 16791 und m=5573 und e=1202 status true
+n= 737 bruch 3.0190: frobenius = 16849 und m=5581 und e=1202 status true
+n= 738 bruch 3.0161: frobenius = 16863 und m=5591 und e=1205 status true
+n= 739 bruch 3.0068: frobenius = 16907 und m=5623 und e=1210 status true
+n= 740 bruch 2.9996: frobenius = 16915 und m=5639 und e=1211 status true
+n= 741 bruch 3.0004: frobenius = 16925 und m=5641 und e=1214 status true
+n= 742 bruch 2.9996: frobenius = 16939 und m=5647 und e=1214 status true
+n= 743 bruch 2.9996: frobenius = 16951 und m=5651 und e=1213 status true
+n= 744 bruch 3.0004: frobenius = 16961 und m=5653 und e=1212 status true
+n= 745 bruch 3.0074: frobenius = 17013 und m=5657 und e=1215 status true
+n= 746 bruch 3.0141: frobenius = 17057 und m=5659 und e=1215 status true
+n= 747 bruch 3.0088: frobenius = 17057 und m=5669 und e=1217 status true
+n= 748 bruch 3.0056: frobenius = 17081 und m=5683 und e=1221 status true
+n= 749 bruch 3.0074: frobenius = 17109 und m=5689 und e=1221 status true
+n= 750 bruch 3.0137: frobenius = 17157 und m=5693 und e=1224 status true
+n= 751 bruch 3.0123: frobenius = 17173 und m=5701 und e=1224 status true
+n= 752 bruch 3.0095: frobenius = 17187 und m=5711 und e=1225 status true
+n= 753 bruch 3.0094: frobenius = 17205 und m=5717 und e=1226 status true
+n= 754 bruch 3.0077: frobenius = 17255 und m=5737 und e=1230 status true
+n= 755 bruch 3.0098: frobenius = 17279 und m=5741 und e=1230 status true
+n= 756 bruch 3.0129: frobenius = 17303 und m=5743 und e=1233 status true
+n= 757 bruch 3.0167: frobenius = 17343 und m=5749 und e=1235 status true
+n= 758 bruch 3.0031: frobenius = 17355 und m=5779 und e=1237 status true
+n= 759 bruch 3.0100: frobenius = 17407 und m=5783 und e=1239 status true
+n= 760 bruch 3.0059: frobenius = 17407 und m=5791 und e=1240 status true
+n= 761 bruch 3.0059: frobenius = 17437 und m=5801 und e=1245 status true
+n= 762 bruch 3.0052: frobenius = 17451 und m=5807 und e=1245 status true
+n= 763 bruch 3.0034: frobenius = 17459 und m=5813 und e=1246 status true
+n= 764 bruch 3.0065: frobenius = 17501 und m=5821 und e=1249 status true
+n= 765 bruch 3.0045: frobenius = 17507 und m=5827 und e=1249 status true
+n= 766 bruch 3.0010: frobenius = 17523 und m=5839 und e=1251 status true
+n= 767 bruch 3.0007: frobenius = 17533 und m=5843 und e=1251 status true
+n= 768 bruch 2.9997: frobenius = 17545 und m=5849 und e=1250 status true
+n= 769 bruch 3.0024: frobenius = 17567 und m=5851 und e=1250 status true
+n= 770 bruch 3.0010: frobenius = 17577 und m=5857 und e=1251 status true
+n= 771 bruch 3.0017: frobenius = 17593 und m=5861 und e=1252 status true
+n= 772 bruch 3.0034: frobenius = 17621 und m=5867 und e=1255 status true
+n= 773 bruch 3.0102: frobenius = 17667 und m=5869 und e=1254 status true
+n= 774 bruch 3.0139: frobenius = 17719 und m=5879 und e=1255 status true
+n= 775 bruch 3.0262: frobenius = 17797 und m=5881 und e=1258 status true
+n= 776 bruch 3.0227: frobenius = 17825 und m=5897 und e=1265 status true
+n= 777 bruch 3.0197: frobenius = 17825 und m=5903 und e=1265 status true
+n= 778 bruch 3.0172: frobenius = 17871 und m=5923 und e=1267 status true
+n= 779 bruch 3.0209: frobenius = 17905 und m=5927 und e=1271 status true
+n= 780 bruch 3.0172: frobenius = 17919 und m=5939 und e=1274 status true
+n= 781 bruch 3.0178: frobenius = 17965 und m=5953 und e=1277 status true
+n= 782 bruch 3.0127: frobenius = 18019 und m=5981 und e=1284 status true
+n= 783 bruch 3.0130: frobenius = 18039 und m=5987 und e=1283 status true
+n= 784 bruch 3.0130: frobenius = 18099 und m=6007 und e=1284 status true
+n= 785 bruch 3.0110: frobenius = 18099 und m=6011 und e=1286 status true
+n= 786 bruch 3.0033: frobenius = 18107 und m=6029 und e=1289 status true
+n= 787 bruch 3.0073: frobenius = 18155 und m=6037 und e=1289 status true
+n= 788 bruch 3.0070: frobenius = 18171 und m=6043 und e=1291 status true
+n= 789 bruch 3.0060: frobenius = 18177 und m=6047 und e=1294 status true
+n= 790 bruch 3.0073: frobenius = 18203 und m=6053 und e=1295 status true
+n= 791 bruch 3.0063: frobenius = 18239 und m=6067 und e=1298 status true
+n= 792 bruch 3.0043: frobenius = 18245 und m=6073 und e=1299 status true
+n= 793 bruch 3.0184: frobenius = 18349 und m=6079 und e=1302 status true
+n= 794 bruch 3.0135: frobenius = 18349 und m=6089 und e=1303 status true
+n= 795 bruch 3.0144: frobenius = 18361 und m=6091 und e=1308 status true
+n= 796 bruch 3.0144: frobenius = 18391 und m=6101 und e=1308 status true
+n= 797 bruch 3.0134: frobenius = 18421 und m=6113 und e=1309 status true
+n= 798 bruch 3.0111: frobenius = 18431 und m=6121 und e=1311 status true
+n= 799 bruch 3.0078: frobenius = 18441 und m=6131 und e=1311 status true
+n= 800 bruch 3.0117: frobenius = 18471 und m=6133 und e=1314 status true
+n= 801 bruch 3.0107: frobenius = 18495 und m=6143 und e=1316 status true
+n= 802 bruch 3.0101: frobenius = 18515 und m=6151 und e=1318 status true
+n= 803 bruch 3.0101: frobenius = 18551 und m=6163 und e=1320 status true
+n= 804 bruch 3.0107: frobenius = 18585 und m=6173 und e=1322 status true
+n= 805 bruch 2.9997: frobenius = 18589 und m=6197 und e=1323 status true
+n= 806 bruch 3.0081: frobenius = 18647 und m=6199 und e=1323 status true
+n= 807 bruch 3.0103: frobenius = 18673 und m=6203 und e=1322 status true
+n= 808 bruch 3.0081: frobenius = 18683 und m=6211 und e=1323 status true
+n= 809 bruch 3.0051: frobenius = 18683 und m=6217 und e=1323 status true
+n= 810 bruch 3.0087: frobenius = 18717 und m=6221 und e=1324 status true
+n= 811 bruch 3.0080: frobenius = 18737 und m=6229 und e=1328 status true
+n= 812 bruch 3.0045: frobenius = 18769 und m=6247 und e=1329 status true
+n= 813 bruch 3.0016: frobenius = 18781 und m=6257 und e=1332 status true
+n= 814 bruch 3.0016: frobenius = 18799 und m=6263 und e=1331 status true
+n= 815 bruch 3.0022: frobenius = 18821 und m=6269 und e=1332 status true
+n= 816 bruch 3.0086: frobenius = 18867 und m=6271 und e=1332 status true
+n= 817 bruch 3.0057: frobenius = 18867 und m=6277 und e=1333 status true
+n= 818 bruch 3.0073: frobenius = 18907 und m=6287 und e=1332 status true
+n= 819 bruch 3.0016: frobenius = 18907 und m=6299 und e=1331 status true
+n= 820 bruch 3.0063: frobenius = 18943 und m=6301 und e=1333 status true
+n= 821 bruch 3.0054: frobenius = 18967 und m=6311 und e=1337 status true
+n= 822 bruch 3.0054: frobenius = 18985 und m=6317 und e=1337 status true
+n= 823 bruch 3.0038: frobenius = 18993 und m=6323 und e=1336 status true
+n= 824 bruch 3.0054: frobenius = 19021 und m=6329 und e=1336 status true
+n= 825 bruch 3.0022: frobenius = 19025 und m=6337 und e=1339 status true
+n= 826 bruch 3.0022: frobenius = 19043 und m=6343 und e=1339 status true
+n= 827 bruch 3.0006: frobenius = 19063 und m=6353 und e=1339 status true
+n= 828 bruch 3.0088: frobenius = 19133 und m=6359 und e=1340 status true
+n= 829 bruch 3.0173: frobenius = 19193 und m=6361 und e=1344 status true
+n= 830 bruch 3.0192: frobenius = 19223 und m=6367 und e=1344 status true
+n= 831 bruch 3.0163: frobenius = 19223 und m=6373 und e=1343 status true
+n= 832 bruch 3.0210: frobenius = 19271 und m=6379 und e=1344 status true
+n= 833 bruch 3.0163: frobenius = 19271 und m=6389 und e=1346 status true
+n= 834 bruch 3.0256: frobenius = 19355 und m=6397 und e=1353 status true
+n= 835 bruch 3.0143: frobenius = 19355 und m=6421 und e=1355 status true
+n= 836 bruch 3.0162: frobenius = 19385 und m=6427 und e=1356 status true
+n= 837 bruch 3.0121: frobenius = 19425 und m=6449 und e=1357 status true
+n= 838 bruch 3.0133: frobenius = 19439 und m=6451 und e=1365 status true
+n= 839 bruch 3.0124: frobenius = 19487 und m=6469 und e=1365 status true
+n= 840 bruch 3.0182: frobenius = 19537 und m=6473 und e=1370 status true
+n= 841 bruch 3.0160: frobenius = 19547 und m=6481 und e=1372 status true
+n= 842 bruch 3.0194: frobenius = 19599 und m=6491 und e=1376 status true
+n= 843 bruch 3.0083: frobenius = 19617 und m=6521 und e=1379 status true
+n= 844 bruch 3.0077: frobenius = 19637 und m=6529 und e=1381 status true
+n= 845 bruch 3.0003: frobenius = 19643 und m=6547 und e=1381 status true
+n= 846 bruch 3.0015: frobenius = 19663 und m=6551 und e=1381 status true
+n= 847 bruch 3.0021: frobenius = 19673 und m=6553 und e=1381 status true
+n= 848 bruch 3.0006: frobenius = 19693 und m=6563 und e=1382 status true
+n= 849 bruch 2.9997: frobenius = 19705 und m=6569 und e=1383 status true
+n= 850 bruch 3.0049: frobenius = 19745 und m=6571 und e=1386 status true
+n= 851 bruch 3.0119: frobenius = 19809 und m=6577 und e=1388 status true
+n= 852 bruch 3.0134: frobenius = 19831 und m=6581 und e=1390 status true
+n= 853 bruch 3.0130: frobenius = 19883 und m=6599 und e=1393 status true
+n= 854 bruch 3.0130: frobenius = 19907 und m=6607 und e=1395 status true
+n= 855 bruch 3.0100: frobenius = 19923 und m=6619 und e=1397 status true
+n= 856 bruch 3.0051: frobenius = 19945 und m=6637 und e=1399 status true
+n= 857 bruch 3.0045: frobenius = 19989 und m=6653 und e=1401 status true
+n= 858 bruch 3.0102: frobenius = 20045 und m=6659 und e=1401 status true
+n= 859 bruch 3.0093: frobenius = 20045 und m=6661 und e=1405 status true
+n= 860 bruch 3.0039: frobenius = 20045 und m=6673 und e=1407 status true
+n= 861 bruch 3.0057: frobenius = 20075 und m=6679 und e=1408 status true
+n= 862 bruch 3.0015: frobenius = 20077 und m=6689 und e=1408 status true
+n= 863 bruch 3.0039: frobenius = 20099 und m=6691 und e=1410 status true
+n= 864 bruch 3.0045: frobenius = 20133 und m=6701 und e=1410 status true
+n= 865 bruch 3.0128: frobenius = 20195 und m=6703 und e=1413 status true
+n= 866 bruch 3.0101: frobenius = 20195 und m=6709 und e=1416 status true
+n= 867 bruch 3.0122: frobenius = 20239 und m=6719 und e=1418 status true
+n= 868 bruch 3.0107: frobenius = 20271 und m=6733 und e=1419 status true
+n= 869 bruch 3.0095: frobenius = 20275 und m=6737 und e=1422 status true
+n= 870 bruch 3.0041: frobenius = 20311 und m=6761 und e=1423 status true
+n= 871 bruch 3.0062: frobenius = 20331 und m=6763 und e=1424 status true
+n= 872 bruch 3.0050: frobenius = 20371 und m=6779 und e=1429 status true
+n= 873 bruch 3.0059: frobenius = 20383 und m=6781 und e=1430 status true
+n= 874 bruch 3.0044: frobenius = 20403 und m=6791 und e=1431 status true
+n= 875 bruch 3.0062: frobenius = 20421 und m=6793 und e=1433 status true
+n= 876 bruch 3.0062: frobenius = 20451 und m=6803 und e=1435 status true
+n= 877 bruch 3.0003: frobenius = 20471 und m=6823 und e=1434 status true
+n= 878 bruch 3.0035: frobenius = 20505 und m=6827 und e=1435 status true
+n= 879 bruch 3.0044: frobenius = 20517 und m=6829 und e=1436 status true
+n= 880 bruch 3.0061: frobenius = 20541 und m=6833 und e=1438 status true
+n= 881 bruch 3.0053: frobenius = 20559 und m=6841 und e=1440 status true
+n= 882 bruch 3.0023: frobenius = 20587 und m=6857 und e=1441 status true
+n= 883 bruch 3.0044: frobenius = 20619 und m=6863 und e=1442 status true
+n= 884 bruch 3.0052: frobenius = 20643 und m=6869 und e=1441 status true
+n= 885 bruch 3.0096: frobenius = 20679 und m=6871 und e=1443 status true
+n= 886 bruch 3.0078: frobenius = 20703 und m=6883 und e=1444 status true
+n= 887 bruch 3.0058: frobenius = 20737 und m=6899 und e=1448 status true
+n= 888 bruch 3.0052: frobenius = 20757 und m=6907 und e=1451 status true
+n= 889 bruch 3.0101: frobenius = 20803 und m=6911 und e=1452 status true
+n= 890 bruch 3.0113: frobenius = 20829 und m=6917 und e=1455 status true
+n= 891 bruch 3.0014: frobenius = 20851 und m=6947 und e=1455 status true
+n= 892 bruch 3.0023: frobenius = 20863 und m=6949 und e=1455 status true
+n= 893 bruch 2.9997: frobenius = 20875 und m=6959 und e=1455 status true
+n= 894 bruch 3.0034: frobenius = 20907 und m=6961 und e=1457 status true
+n= 895 bruch 3.0032: frobenius = 20923 und m=6967 und e=1458 status true
+n= 896 bruch 3.0040: frobenius = 20941 und m=6971 und e=1460 status true
+n= 897 bruch 3.0032: frobenius = 20953 und m=6977 und e=1460 status true
+n= 898 bruch 3.0029: frobenius = 20969 und m=6983 und e=1460 status true
+n= 899 bruch 3.0034: frobenius = 20997 und m=6991 und e=1461 status true
+n= 900 bruch 3.0026: frobenius = 21009 und m=6997 und e=1465 status true
+n= 901 bruch 3.0066: frobenius = 21049 und m=7001 und e=1468 status true
+n= 902 bruch 3.0068: frobenius = 21087 und m=7013 und e=1467 status true
+n= 903 bruch 3.0060: frobenius = 21099 und m=7019 und e=1468 status true
+n= 904 bruch 3.0196: frobenius = 21219 und m=7027 und e=1470 status true
+n= 905 bruch 3.0145: frobenius = 21219 und m=7039 und e=1471 status true
+n= 906 bruch 3.0128: frobenius = 21219 und m=7043 und e=1475 status true
+n= 907 bruch 3.0142: frobenius = 21271 und m=7057 und e=1480 status true
+n= 908 bruch 3.0192: frobenius = 21343 und m=7069 und e=1481 status true
+n= 909 bruch 3.0234: frobenius = 21403 und m=7079 und e=1486 status true
+n= 910 bruch 3.0132: frobenius = 21403 und m=7103 und e=1486 status true
+n= 911 bruch 3.0132: frobenius = 21421 und m=7109 und e=1487 status true
+n= 912 bruch 3.0081: frobenius = 21421 und m=7121 und e=1488 status true
+n= 913 bruch 3.0109: frobenius = 21459 und m=7127 und e=1491 status true
+n= 914 bruch 3.0137: frobenius = 21485 und m=7129 und e=1493 status true
+n= 915 bruch 3.0103: frobenius = 21527 und m=7151 und e=1497 status true
+n= 916 bruch 3.0081: frobenius = 21535 und m=7159 und e=1501 status true
+n= 917 bruch 3.0033: frobenius = 21555 und m=7177 und e=1503 status true
+n= 918 bruch 3.0047: frobenius = 21595 und m=7187 und e=1506 status true
+n= 919 bruch 3.0042: frobenius = 21609 und m=7193 und e=1507 status true
+n= 920 bruch 3.0003: frobenius = 21623 und m=7207 und e=1510 status true
+n= 921 bruch 2.9997: frobenius = 21631 und m=7211 und e=1510 status true
+n= 922 bruch 3.0169: frobenius = 21761 und m=7213 und e=1511 status true
+n= 923 bruch 3.0144: frobenius = 21761 und m=7219 und e=1513 status true
+n= 924 bruch 3.0102: frobenius = 21761 und m=7229 und e=1512 status true
+n= 925 bruch 3.0102: frobenius = 21785 und m=7237 und e=1513 status true
+n= 926 bruch 3.0077: frobenius = 21785 und m=7243 und e=1515 status true
+n= 927 bruch 3.0130: frobenius = 21835 und m=7247 und e=1520 status true
+n= 928 bruch 3.0165: frobenius = 21879 und m=7253 und e=1522 status true
+n= 929 bruch 3.0115: frobenius = 21933 und m=7283 und e=1527 status true
+n= 930 bruch 3.0208: frobenius = 22043 und m=7297 und e=1528 status true
+n= 931 bruch 3.0167: frobenius = 22043 und m=7307 und e=1530 status true
+n= 932 bruch 3.0183: frobenius = 22061 und m=7309 und e=1531 status true
+n= 933 bruch 3.0134: frobenius = 22061 und m=7321 und e=1532 status true
+n= 934 bruch 3.0183: frobenius = 22127 und m=7331 und e=1535 status true
+n= 935 bruch 3.0199: frobenius = 22145 und m=7333 und e=1538 status true
+n= 936 bruch 3.0163: frobenius = 22167 und m=7349 und e=1540 status true
+n= 937 bruch 3.0231: frobenius = 22223 und m=7351 und e=1551 status true
+n= 938 bruch 3.0214: frobenius = 22265 und m=7369 und e=1552 status true
+n= 939 bruch 3.0149: frobenius = 22289 und m=7393 und e=1554 status true
+n= 940 bruch 3.0086: frobenius = 22297 und m=7411 und e=1554 status true
+n= 941 bruch 3.0105: frobenius = 22329 und m=7417 und e=1557 status true
+n= 942 bruch 3.0086: frobenius = 22363 und m=7433 und e=1559 status true
+n= 943 bruch 3.0013: frobenius = 22363 und m=7451 und e=1561 status true
+n= 944 bruch 3.0024: frobenius = 22389 und m=7457 und e=1563 status true
+n= 945 bruch 3.0056: frobenius = 22419 und m=7459 und e=1564 status true
+n= 946 bruch 3.0008: frobenius = 22437 und m=7477 und e=1564 status true
+n= 947 bruch 3.0061: frobenius = 22489 und m=7481 und e=1566 status true
+n= 948 bruch 3.0037: frobenius = 22489 und m=7487 und e=1566 status true
+n= 949 bruch 3.0056: frobenius = 22509 und m=7489 und e=1567 status true
+n= 950 bruch 3.0037: frobenius = 22525 und m=7499 und e=1569 status true
+n= 951 bruch 3.0032: frobenius = 22545 und m=7507 und e=1568 status true
+n= 952 bruch 3.0045: frobenius = 22585 und m=7517 und e=1572 status true
+n= 953 bruch 3.0029: frobenius = 22591 und m=7523 und e=1572 status true
+n= 954 bruch 3.0029: frobenius = 22609 und m=7529 und e=1571 status true
+n= 955 bruch 3.0008: frobenius = 22617 und m=7537 und e=1571 status true
+n= 956 bruch 3.0013: frobenius = 22633 und m=7541 und e=1572 status true
+n= 957 bruch 3.0029: frobenius = 22663 und m=7547 und e=1574 status true
+n= 958 bruch 3.0034: frobenius = 22673 und m=7549 und e=1574 status true
+n= 959 bruch 3.0016: frobenius = 22689 und m=7559 und e=1574 status true
+n= 960 bruch 3.0026: frobenius = 22703 und m=7561 und e=1577 status true
+n= 961 bruch 3.0008: frobenius = 22725 und m=7573 und e=1579 status true
+n= 962 bruch 3.0029: frobenius = 22753 und m=7577 und e=1581 status true
+n= 963 bruch 3.0055: frobenius = 22791 und m=7583 und e=1581 status true
+n= 964 bruch 3.0034: frobenius = 22793 und m=7589 und e=1583 status true
+n= 965 bruch 3.0121: frobenius = 22865 und m=7591 und e=1585 status true
+n= 966 bruch 3.0079: frobenius = 22869 und m=7603 und e=1585 status true
+n= 967 bruch 3.0076: frobenius = 22879 und m=7607 und e=1586 status true
+n= 968 bruch 3.0118: frobenius = 22953 und m=7621 und e=1589 status true
+n= 969 bruch 3.0047: frobenius = 22953 und m=7639 und e=1590 status true
+n= 970 bruch 3.0060: frobenius = 22975 und m=7643 und e=1592 status true
+n= 971 bruch 3.0047: frobenius = 22983 und m=7649 und e=1594 status true
+n= 972 bruch 3.0008: frobenius = 23013 und m=7669 und e=1597 status true
+n= 973 bruch 3.0016: frobenius = 23031 und m=7673 und e=1598 status true
+n= 974 bruch 3.0010: frobenius = 23051 und m=7681 und e=1600 status true
+n= 975 bruch 3.0029: frobenius = 23083 und m=7687 und e=1604 status true
+n= 976 bruch 3.0070: frobenius = 23127 und m=7691 und e=1603 status true
+n= 977 bruch 3.0057: frobenius = 23141 und m=7699 und e=1606 status true
+n= 978 bruch 3.0060: frobenius = 23155 und m=7703 und e=1605 status true
+n= 979 bruch 3.0127: frobenius = 23249 und m=7717 und e=1607 status true
+n= 980 bruch 3.0104: frobenius = 23249 und m=7723 und e=1609 status true
+n= 981 bruch 3.0129: frobenius = 23281 und m=7727 und e=1610 status true
+n= 982 bruch 3.0132: frobenius = 23325 und m=7741 und e=1613 status true
+n= 983 bruch 3.0132: frobenius = 23361 und m=7753 und e=1616 status true
+n= 984 bruch 3.0116: frobenius = 23361 und m=7757 und e=1617 status true
+n= 985 bruch 3.0175: frobenius = 23413 und m=7759 und e=1619 status true
+n= 986 bruch 3.0128: frobenius = 23467 und m=7789 und e=1621 status true
+n= 987 bruch 3.0182: frobenius = 23521 und m=7793 und e=1627 status true
+n= 988 bruch 3.0120: frobenius = 23545 und m=7817 und e=1628 status true
+n= 989 bruch 3.0105: frobenius = 23551 und m=7823 und e=1627 status true
+n= 990 bruch 3.0082: frobenius = 23551 und m=7829 und e=1627 status true
+n= 991 bruch 3.0059: frobenius = 23569 und m=7841 und e=1629 status true
+n= 992 bruch 3.0046: frobenius = 23595 und m=7853 und e=1632 status true
+n= 993 bruch 3.0018: frobenius = 23615 und m=7867 und e=1635 status true
+n= 994 bruch 3.0003: frobenius = 23621 und m=7873 und e=1634 status true
+n= 995 bruch 3.0089: frobenius = 23701 und m=7877 und e=1637 status true
+n= 996 bruch 3.0081: frobenius = 23701 und m=7879 und e=1637 status true
+n= 997 bruch 3.0104: frobenius = 23731 und m=7883 und e=1642 status true
+n= 998 bruch 3.0058: frobenius = 23749 und m=7901 und e=1642 status true
+n= 999 bruch 3.0061: frobenius = 23769 und m=7907 und e=1641 status true
+n=1000 bruch 3.0109: frobenius = 23843 und m=7919 und e=1645 status true
+n=1001 bruch 3.0093: frobenius = 23855 und m=7927 und e=1646 status true
+n=1002 bruch 3.0091: frobenius = 23871 und m=7933 und e=1651 status true
+n=1003 bruch 3.0113: frobenius = 23901 und m=7937 und e=1654 status true
+n=1004 bruch 3.0146: frobenius = 23963 und m=7949 und e=1655 status true
+n=1005 bruch 3.0206: frobenius = 24017 und m=7951 und e=1661 status true
+n=1006 bruch 3.0198: frobenius = 24047 und m=7963 und e=1664 status true
+n=1007 bruch 3.0093: frobenius = 24053 und m=7993 und e=1665 status true
+n=1008 bruch 3.0052: frobenius = 24069 und m=8009 und e=1667 status true
+n=1009 bruch 3.0135: frobenius = 24141 und m=8011 und e=1672 status true
+n=1010 bruch 3.0165: frobenius = 24183 und m=8017 und e=1675 status true
+n=1011 bruch 3.0082: frobenius = 24183 und m=8039 und e=1678 status true
+n=1012 bruch 3.0037: frobenius = 24189 und m=8053 und e=1680 status true
+n=1013 bruch 3.0045: frobenius = 24213 und m=8059 und e=1682 status true
+n=1014 bruch 3.0057: frobenius = 24253 und m=8069 und e=1683 status true
+n=1015 bruch 3.0012: frobenius = 24253 und m=8081 und e=1684 status true
+n=1016 bruch 3.0087: frobenius = 24331 und m=8087 und e=1684 status true
+n=1017 bruch 3.0079: frobenius = 24331 und m=8089 und e=1684 status true
+n=1018 bruch 3.0109: frobenius = 24367 und m=8093 und e=1684 status true
+n=1019 bruch 3.0091: frobenius = 24377 und m=8101 und e=1684 status true
+n=1020 bruch 3.0116: frobenius = 24427 und m=8111 und e=1690 status true
+n=1021 bruch 3.0118: frobenius = 24447 und m=8117 und e=1689 status true
+n=1022 bruch 3.0126: frobenius = 24471 und m=8123 und e=1691 status true
+n=1023 bruch 3.0061: frobenius = 24491 und m=8147 und e=1692 status true
+n=1024 bruch 3.0076: frobenius = 24545 und m=8161 und e=1695 status true
+n=1025 bruch 3.0054: frobenius = 24545 und m=8167 und e=1695 status true
+n=1026 bruch 3.0064: frobenius = 24565 und m=8171 und e=1697 status true
+n=1027 bruch 3.0083: frobenius = 24605 und m=8179 und e=1702 status true
+n=1028 bruch 3.0076: frobenius = 24635 und m=8191 und e=1701 status true
+n=1029 bruch 3.0032: frobenius = 24653 und m=8209 und e=1701 status true
+n=1030 bruch 3.0012: frobenius = 24667 und m=8219 und e=1700 status true
+n=1031 bruch 3.0022: frobenius = 24681 und m=8221 und e=1702 status true
+n=1032 bruch 3.0034: frobenius = 24721 und m=8231 und e=1703 status true
+n=1033 bruch 3.0063: frobenius = 24751 und m=8233 und e=1703 status true
+n=1034 bruch 3.0056: frobenius = 24757 und m=8237 und e=1704 status true
+n=1035 bruch 3.0075: frobenius = 24791 und m=8243 und e=1705 status true
+n=1036 bruch 3.0017: frobenius = 24803 und m=8263 und e=1708 status true
+n=1037 bruch 3.0046: frobenius = 24845 und m=8269 und e=1710 status true
+n=1038 bruch 3.0036: frobenius = 24849 und m=8273 und e=1709 status true
+n=1039 bruch 3.0082: frobenius = 24929 und m=8287 und e=1711 status true
+n=1040 bruch 3.0068: frobenius = 24929 und m=8291 und e=1711 status true
+n=1041 bruch 3.0154: frobenius = 25007 und m=8293 und e=1712 status true
+n=1042 bruch 3.0140: frobenius = 25007 und m=8297 und e=1713 status true
+n=1043 bruch 3.0111: frobenius = 25025 und m=8311 und e=1722 status true
+n=1044 bruch 3.0108: frobenius = 25041 und m=8317 und e=1723 status true
+n=1045 bruch 3.0094: frobenius = 25065 und m=8329 und e=1725 status true
+n=1046 bruch 3.0026: frobenius = 25081 und m=8353 und e=1725 status true
+n=1047 bruch 3.0122: frobenius = 25191 und m=8363 und e=1725 status true
+n=1048 bruch 3.0100: frobenius = 25191 und m=8369 und e=1727 status true
+n=1049 bruch 3.0072: frobenius = 25191 und m=8377 und e=1729 status true
+n=1050 bruch 3.0064: frobenius = 25215 und m=8387 und e=1731 status true
+n=1051 bruch 3.0079: frobenius = 25233 und m=8389 und e=1734 status true
+n=1052 bruch 3.0007: frobenius = 25263 und m=8419 und e=1736 status true
+n=1053 bruch 3.0050: frobenius = 25311 und m=8423 und e=1737 status true
+n=1054 bruch 3.0052: frobenius = 25331 und m=8429 und e=1737 status true
+n=1055 bruch 3.0123: frobenius = 25397 und m=8431 und e=1742 status true
+n=1056 bruch 3.0178: frobenius = 25479 und m=8443 und e=1744 status true
+n=1057 bruch 3.0163: frobenius = 25479 und m=8447 und e=1746 status true
+n=1058 bruch 3.0113: frobenius = 25479 und m=8461 und e=1748 status true
+n=1059 bruch 3.0132: frobenius = 25513 und m=8467 und e=1749 status true
+n=1060 bruch 3.0035: frobenius = 25533 und m=8501 und e=1752 status true
+n=1061 bruch 3.0023: frobenius = 25559 und m=8513 und e=1753 status true
+n=1062 bruch 3.0012: frobenius = 25573 und m=8521 und e=1756 status true
+n=1063 bruch 3.0059: frobenius = 25631 und m=8527 und e=1756 status true
+n=1064 bruch 3.0028: frobenius = 25635 und m=8537 und e=1759 status true
+n=1065 bruch 3.0063: frobenius = 25671 und m=8539 und e=1762 status true
+n=1066 bruch 3.0119: frobenius = 25731 und m=8543 und e=1763 status true
