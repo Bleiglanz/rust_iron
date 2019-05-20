@@ -100,19 +100,21 @@ pub struct WilfSet {
     double_avg_a: usize,
     pub maxgap: usize,
     pub g1: usize,
-    count_set: usize,
+    pub count_set: usize,
     count_gap: usize,
     gen_flags: Vec<usize>,
     pub gen_set: Vec<usize>,
     pub e:usize,
     pub c:usize,
     lambda_matrix:Vec<Vec<usize>>,
+    pub a1:usize,
 }
 
 impl WilfSet {
     fn new(set: Vec<u8>, apery: Vec<usize>, g1: usize) -> WilfSet {
         let max_a: usize = *apery.iter().max().unwrap();
         let min_a: usize = *apery[1..].iter().min().unwrap();
+        let a1:usize = apery[1];
         let count_set = *(&set[0..(max_a - g1 + 1)].iter().map(|s| *s as usize).sum());
         let count_gap = *(&set[0..(max_a - g1 + 1)]
             .iter()
@@ -147,6 +149,7 @@ impl WilfSet {
             gen_set: gen_set,
             c : max_a - g1+1,
             lambda_matrix: tmp_lambda_matrix,
+            a1:a1,
         }
     }
 

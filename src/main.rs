@@ -13,18 +13,18 @@ use rust_iron::wilf;
 
 fn mainprimes(){
     println!("Primgruppen");
-    for skip in 0..30 {
+    for skip in 50..200 {
         let primes = primal::Primes::all();
         let mut input: Vec<usize> = Vec::new();
         for c in primes.skip(skip).take(5000) {
             input.push(c);
         }
         let res:WilfSet= wilf(&input);
-        println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4}",skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e);//, res.gen_set);
-        println!("{:?}",res.gen_set);
+        println!("n={:4}  frobenius = {:4} m={:4}   e={:4} wilf={}",
+                 skip+1,  res.maxgap,      res.g1, res.e,  res.count_set as f64/res.c as f64);
+        //Println!("{:?}",res.gen_set);
     }
 }
-
 
 
 fn main() {
