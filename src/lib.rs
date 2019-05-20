@@ -2,11 +2,11 @@ extern crate rand;
 use rand::Rng;
 use rand::prelude::*;
 use std::str::FromStr;
-
+pub mod semigroup;
 mod html;
 
 
-fn gcd(mut m: usize, mut n: usize) -> usize {
+pub fn gcd(mut m: usize, mut n: usize) -> usize {
     assert!(m != 0 && n != 0);
     while m > 0 {
         if m < n {

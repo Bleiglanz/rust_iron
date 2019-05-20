@@ -1,29 +1,34 @@
 extern crate iron;
 extern crate params;
 extern crate dotenv;
-#[macro_use] extern crate mime;
+extern crate clap;
+#[macro_use]
+extern crate mime;
+extern crate crossbeam;
 
+use clap::{Arg, App};
 use iron::prelude::*;
 use iron::status;
 use params::{Params, Value};
 use std::env;
-use rust_iron::WilfSet;
-use rust_iron::wilf;
-use std::collections::HashSet;
+//use rust_iron::WilfSet;
+//use rust_iron::wilf;
+use rust_iron::semigroup::{Semi, semi};
+use crossbeam::thread;
 
-use std::iter::FromIterator;
 
-fn mainprimes(){
+fn computation( primes:&[usize], task:(usize,usize)){
 
-    println!("Primgruppen");
+    let start = task.0;
+    let stop = task.1;
 
-    let mut last_apery:Vec<usize>  = vec![];
+    let mut last_apery: Vec<usize> = vec![];
 
-    fn findmax6(s:&[usize],start:usize)->usize{
+    fn findmax6(s: &[usize], start: usize) -> usize {
         let mut max = start;
         loop {
-            if s[max] <= 6 * s[start]{
-                max = max +1;
+            if s[max] <= 6 * s[start] {
+                max = max + 1;
             } else {
                 break;
             }
@@ -31,33 +36,88 @@ fn mainprimes(){
         max
     }
 
-    let primes:Vec<usize> = primal::Primes::all().take(100000).collect();
+    let mut out = std::fs::File::create(format!("./out_{}_{}.csv",start,stop)).expect("Unable to create file");
 
-    for skip in 2007..10000 {
-
+    for skip in start..stop {
         let mut input: Vec<usize> = Vec::new();
-        input.extend_from_slice(&primes[skip..findmax6(&primes,skip)]);
+        input.extend_from_slice(&primes[skip..findmax6(&primes, skip)]);
         let first = input[0].clone();
         let max = first * 6;
-        let mut generators:Vec<usize> = Vec::with_capacity(input.len());
+        let mut generators: Vec<usize> = Vec::with_capacity(input.len());
         for g in input {
-            if g<max {generators.push(g)}
+            if g < max { generators.push(g) }
         }
         generators.sort();
         generators.dedup();
 
-        let res:WilfSet= wilf(&generators);
-        println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
-                 skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e, res.c<max);//, res.gen_set);
-        //println!("{:?}",res.gen_set);
-        last_apery.clear();
-        last_apery.extend_from_slice(&res.apery[1..]);
+//        let res:WilfSet= wilf(&generators);
+        //      println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
+        //             skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e, res.c<max);//, res.gen_set);
 
+        let res2: Semi = semi(&generators);
+        //println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
+        //       skip+1, res2.maxgap as f64/res2.g1 as f64, res2.maxgap, res2.g1, res2.e, res2.c<max);//, res.gen_set);
+        let ausgabe = format!("{:5};{:.8};{:8};{:5}\n",
+                 skip + 1, res2.maxgap as f64 / res2.g1 as f64, res2.maxgap, res2.g1);//, res.gen_set);
+        //println!("{}",ausgabe);
+        use std::io::Write;
+        out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
+        last_apery.clear();
+        last_apery.extend_from_slice(&res2.apery[1..]);
     }
+    println!("Task beendet {}-{}",start,stop);
+}
+
+
+fn mainprimes(cores: usize, start: usize, stop: usize) {
+    let interval = (stop - start) / cores;
+    let mut tasks: Vec<(usize, usize)> = Vec::new();
+    for ti in 0..cores {
+        tasks.push((start + ti * interval, start + (ti + 1) * interval))
+    }
+    println!("Primgruppen {:?}", tasks);
+    let primes: Vec<usize> = primal::Primes::all().take(800000).collect();
+
+    thread::scope(|s| for task in &tasks {
+            let sta = task.0;
+            let sto = task.1;
+            let p:Vec<usize> = primes.clone();
+            s.spawn(move |_| {
+                computation( &p ,(sta,sto));
+            });
+        }).unwrap();
 }
 
 
 fn main() {
+    let matches = App::new("semiprog")
+        .version("0.0")
+        .author("Anton Rechenauer")
+        .about("compute frobenius")
+        .arg(Arg::with_name("cores")
+            .help("number of cores to use")
+            .required(true)
+            .default_value("1")
+        )
+        .arg(Arg::with_name("start")
+            .help("where to begin, a n th prime")
+            .required(true)
+            .default_value("1")
+        )
+        .arg(Arg::with_name("stop")
+            .help("where to stop, a n th prime")
+            .required(true)
+            .default_value("10")
+        )
+
+        .get_matches();
+
+    let cores: usize = matches.value_of("cores").unwrap().parse().unwrap();
+    let start: usize = matches.value_of("start").unwrap().parse().unwrap();
+    let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
+    if cores > 0 {
+        mainprimes(cores, start, stop);
+    }
     dotenv::dotenv().expect("Failed to read .env file");
     match env::var("WILFPORTs") {
         Ok(port) => {
@@ -65,14 +125,9 @@ fn main() {
         }
         Err(_) => ()//println!("Couldn't read WILFPORT ({})", e),
     };
-    match env::var("PRIMEMODE") {
-        Ok(_mode) => mainprimes(),
-        Err(_)=> println!("Couldn't read PRIMEMODE ")
-    }
-
 }
 
-fn index(request:&mut Request) -> IronResult<Response>{
+fn index(request: &mut Request) -> IronResult<Response> {
     let map = request.get_ref::<Params>().unwrap();
     let inputnumbers = match map.find(&["numbers"]) {
         Some(&Value::String(ref numbers)) => numbers,
@@ -86,7 +141,7 @@ fn index(request:&mut Request) -> IronResult<Response>{
     let mut response = Response::new();
     response.set_mut(status::Ok);
     response.set_mut(mime!(Text/Html; Charset=Utf8));
-    let mut page:String = String::new();
+    let mut page: String = String::new();
     page.push_str(r##"<!doctype html>
 <html lang="en">
 <head>
@@ -440,21 +495,21 @@ a.pure-button-primary {
                 <form method="post" action="/" class="pure-form">
                         <label for="numbers">Numbers</label>
                         <textarea id="numbers" name="numbers" rows="5" cols="50">"##);
-page.push_str(inputnumbers.trim());
-page.push_str(r##"
+    page.push_str(inputnumbers.trim());
+    page.push_str(r##"
                         </textarea><br/>
                         <label for="samples">No of attempts to get smaller ratio:</label>
                         <textarea id="samples" name="samples" rows="1" cols="8">"##);
-page.push_str(inputsamples.trim());
-page.push_str(r##"</textarea>
+    page.push_str(inputsamples.trim());
+    page.push_str(r##"</textarea>
                         <button type="submit" class="pure-button">Compute</button>
                 </form>
             </div>
         </div>
         <div class="pure-g">
 "##);
-page.push_str(result);
-page.push_str(r##"
+    page.push_str(result);
+    page.push_str(r##"
         </div>
 
     </div>
