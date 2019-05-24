@@ -13,13 +13,12 @@ use iron::status;
 use params::{Params, Value};
 use std::env;
 use rust_iron::modules::*;
-use rust_iron::modules::wilf::{WilfSet,generatewilf};
+use rust_iron::modules::wilf::{WilfSet, generatewilf};
 use rust_iron::modules::semigroup::{Semi, semi};
 use crossbeam::thread;
 
 
-fn computation( primes:&[usize], task:(usize,usize)){
-
+fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
     let start = task.0;
     let stop = task.1;
 
@@ -37,7 +36,7 @@ fn computation( primes:&[usize], task:(usize,usize)){
         max
     }
 
-    let mut out = std::fs::File::create(format!("./out_{}_{}.csv",start,stop)).expect("Unable to create file");
+    let mut out = std::fs::File::create(format!("./out_{}_{}.csv", start, stop)).expect("Unable to create file");
 
     for skip in start..stop {
         let mut input: Vec<usize> = Vec::new();
@@ -51,28 +50,30 @@ fn computation( primes:&[usize], task:(usize,usize)){
         generators.sort();
         generators.dedup();
 
-//        let res:WilfSet= generatewilf(&generators);
-//              println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} wilf {}",
-//                     skip+1, res.maxgap as f64/res.g1 as f64,
-//                       res.maxgap, res.g1, res.e,  (res.count_set as f64)/(res.c as f64));//, res.gen_set);
-//              println!("Wilf Menge<f {} Erzeuger {:?}",res.count_set, res.gen_set);
+        if detail {
+            let res: WilfSet = generatewilf(&generators);
+            println!("Wilf {:5} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} wilf {}",
+                     skip + 1, res.maxgap as f64 / res.g1 as f64,
+                     res.maxgap, res.g1, res.e, (res.count_set as f64) / (res.c as f64));//, res.gen_set);
+            println!("Wilf Menge<f {} Erzeuger {:?}", res.count_set, res.gen_set);
+        }
         let res2: Semi = semi(&generators);
-        //println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
-        //       skip+1, res2.maxgap as f64/res2.g1 as f64, res2.maxgap, res2.g1, res2.e, res2.c<max);//, res.gen_set);
-
         let ausgabe = format!("Semi {:5};{:.8};{:8};{:5};e={:8};wilf={}\n",
-                 skip + 1, res2.maxgap as f64 / res2.g1 as f64,
-                           res2.maxgap, res2.g1, res2.e, res2.count_set as f64/res2.c as f64);//, res.gen_set);
-        print!("{}",ausgabe);
-        println!("Semi Menge<f {} Erzeuger {:?}\n",res2.count_set, res2.gen_set);
-        //assert_eq!(res.e,res2.e);
-        //assert_eq!(res.c,res2.c);
+                              skip + 1, res2.maxgap as f64 / res2.g1 as f64,
+                              res2.maxgap, res2.g1, res2.e, res2.count_set as f64 / res2.c as f64);//, res.gen_set);
+        print!("{}", ausgabe);
+        if detail{
+            println!("Semi Menge<f {} Erzeuger {:?}\n", res2.count_set, res2.gen_set);
+        }
+        //assert_eq!(res.e, res2.e);
+        //assert_eq!(res.c, res2.c);
+        //assert_eq!(res.count_set, res2.count_set);
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
         last_apery.clear();
         last_apery.extend_from_slice(&res2.apery[1..]);
     }
-    println!("Task beendet {}-{}",start,stop);
+    println!("Task beendet {}-{}", start, stop);
 }
 
 
@@ -82,17 +83,17 @@ fn mainprimes(cores: usize, start: usize, stop: usize) {
     for ti in 0..cores {
         tasks.push((start + ti * interval, start + (ti + 1) * interval))
     }
-    println!("Primgruppen {:?}", tasks);
-    let primes: Vec<usize> = primal::Primes::all().take(800000).collect();
 
+    let primesvec: Vec<usize> = primal::Primes::all().take(8000000).collect();
+    let primes:&[usize] = &primesvec;
+    println!("Primgruppen {:?}", tasks);
     thread::scope(|s| for task in &tasks {
-            let sta = task.0;
-            let sto = task.1;
-            let p:Vec<usize> = primes.clone();
-            s.spawn(move |_| {
-                computation( &p ,(sta,sto));
-            });
-        }).unwrap();
+        let sta = task.0;
+        let sto = task.1;
+        s.spawn(move |_| {
+            computation(primes, (sta, sto), cores == 1);
+        });
+    }).unwrap();
 }
 
 
@@ -109,12 +110,12 @@ fn main() {
         .arg(Arg::with_name("start")
             .help("where to begin, a n th prime")
             .required(true)
-            .default_value("50")
+            .default_value("115")
         )
         .arg(Arg::with_name("stop")
             .help("where to stop, a n th prime")
             .required(true)
-            .default_value("55")
+            .default_value("120")
         )
 
         .get_matches();

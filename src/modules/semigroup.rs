@@ -1,5 +1,5 @@
-use super::gcd_vec;
-use std::collections::HashSet;
+//use super::gcd_vec;
+//use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Semi {
@@ -12,33 +12,29 @@ pub struct Semi {
     pub count_set: usize,
     count_gap: usize,
     pub gen_set: Vec<usize>,
-    pub e:usize,
-    pub c:usize,
-    pub a1:usize,
+    pub e: usize,
+    pub c: usize,
+    pub a1: usize,
 }
 
 impl Semi {
-    fn new(set:Vec<usize>, apery: Vec<usize>, g1: usize, gens:Vec<usize>) -> Self {
+    fn new(count_set: usize, apery: Vec<usize>, g1: usize, gens: Vec<usize>) -> Self {
         let max_a: usize = *apery.iter().max().unwrap();
         let min_a: usize = *apery[1..].iter().min().unwrap();
         let a1: usize = apery[1];
-        let mut count_set= 0usize;
-        for s in set {
-            if s<max_a-g1 { count_set+=1;}
-        }
         let sum = apery.iter().sum();
-        let count_gap = (sum - ((g1-1)*g1)/2)/g1;
+        let count_gap = (sum - ((g1 - 1) * g1) / 2) / g1;
         let double_avg_a = 2 * sum / apery.len();
         let gen_set = gens;
         assert!(g1 < min_a);
         Semi {
-            apery: apery,
-            max_a: max_a,
+            apery,
+            max_a,
             sum_a: sum,
-            double_avg_a: double_avg_a,
+            double_avg_a,
             g1: g1,
             maxgap: max_a - g1,
-            count_set: count_set,
+            count_set,
             count_gap: count_gap,
             e: gen_set.len(),
             gen_set: gen_set,
@@ -49,88 +45,67 @@ impl Semi {
 }
 
 
-
-
-
 pub fn semi(inputnumbers: &[usize]) -> Semi {
 
+    // nicht nötig wenn nur primzahlen richtig sortiert reinkommen
     // teilerfremd machen und sortieren
-    let d = gcd_vec(inputnumbers);
-    let mut input: Vec<usize> = inputnumbers.iter().map(|x| (x / d) as usize).collect();
-    input.sort();
-    assert!(input.len() > 0 && 1 == gcd_vec(&input));
-    let maximal_input: usize = *(input.iter().max().unwrap());
-    let minimal_input: usize = *(input.iter().min().unwrap());
-    let mut aperyset: Vec<usize> = vec![0usize; minimal_input];
+    // let d = gcd_vec(inputnumbers);
+    // let mut input: Vec<usize> = inputnumbers.iter().map(|x| (x / d) as usize).collect();
+    // input.sort();
 
-    // neu: window hat länge 2m
-    let mut result: Vec<usize> = Vec::with_capacity(1000);
-
-    // fenster der länge 2g_1
-    let m = minimal_input;
-    result.push(0usize);
-    let width = 2 * maximal_input;
-    let mut window = vec![0usize;width]; // fenster hat die länge 2m
-    window[0] = 1;
-
+    let maximal_input: usize = *(inputnumbers.iter().max().unwrap());
+    let width=2*maximal_input;
+    let m: usize = *(inputnumbers.iter().min().unwrap());
+    let mut aperyset: Vec<usize> = vec![0usize; m];
+    let mut count_set = 0usize;
+    let mut window = vec![-1isize; width]; // fenster hat die länge 2m
     let mut i: usize = m;
     let mut h: usize = 0; // verbrauchte fenster
-    let mut lookupindex = m;
-
-    let mut runlength = 1; // anzahl aufeinanderfoldender hits
-    let upperbound = maximal_input * maximal_input+1;
-    let mut hit:bool = false;
-
-    while i < upperbound && runlength < m {
-
-        for k in input.iter() {
-            assert!(m<=lookupindex && lookupindex<width,"index");
-            if  lookupindex >= *k && 1 == window[lookupindex-k] && 0 == window[lookupindex] {
-                result.push(i);
-                runlength += 1;
-                hit = true;
-                window[lookupindex]=1;
-                let residue = i % m;
-                if residue > 0 {
+    let mut windowindex = m;
+    let mut runlength = 1usize; // anzahl aufeinanderfoldender hits
+    let mut hit: bool = false;
+    let mut minimal_generators: Vec<usize> = Vec::with_capacity(m);
+    minimal_generators.push(m);
+    window[0]=0;
+    while runlength < m {
+        let residue = i % m;
+        if 0 == residue {
+            count_set += 1;
+            runlength += 1;
+            hit = true;
+            window[windowindex] = i as isize;
+        } else {
+            for k in inputnumbers.iter() {
+                if windowindex >= *k && window[windowindex - k] >= 0 {
+                    count_set += 1;
+                    runlength += 1;
+                    hit = true;
+                    window[windowindex] = i as isize;
                     if 0 == aperyset[residue] {
                         aperyset[residue] = i;
                     }
+                    if 0==window[windowindex - k] {
+                        minimal_generators.push(i);
+                    }
+                    break;
                 }
-                continue;
             }
         }
         if !hit { runlength = 0 };
         hit = false;
         i += 1;
-        if lookupindex == width-1 {
-            for j in 0..maximal_input{
-                window[j]=window[j+m];
-                window[j+m]=0;
+        if windowindex == width - 1 {
+            for j in 0..maximal_input {
+                window[j] = window[j + m];
+                window[j + m] = -1;
             }
-            h=h+1;
-            lookupindex=m;
+            h = h + 1;
+            windowindex = maximal_input;
         } else {
-            lookupindex += 1;
+            windowindex += 1;
         }
     }
-    let minimal_generators: Vec<usize> = compute_gen_set(&aperyset, m);
-    Semi::new(result, aperyset, minimal_input, minimal_generators)
+
+    Semi::new(count_set-m+1, aperyset, m, minimal_generators)
 }
 
-fn compute_gen_set(apery:&[usize], m:usize) ->Vec<usize>{
-    let len=apery.len();
-    let mut gen:HashSet<usize> = HashSet::new();
-    for i in 1..len { gen.insert(apery[i]);}
-    for i in 1..len {
-        for j in i..len {
-            let value = apery[i]+apery[j];
-            let contains = gen.contains(&value);
-            if contains { gen.remove(&value);}
-        }
-    }
-    let mut result = Vec::<usize>::new();
-    result.push(m);
-    for g in gen { result.push(g)}
-    result.sort();
-    result
-}
