@@ -5,7 +5,7 @@ authors = ["Anton Rechenauer <antonrechenauer@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-iron="0.5.1"
+iron="0.6"
 mime="0.2.3"
 router="0.5.1"
 params="*"

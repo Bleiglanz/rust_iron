@@ -5,15 +5,16 @@ extern crate clap;
 #[macro_use]
 extern crate mime;
 extern crate crossbeam;
+extern crate rust_iron;
 
 use clap::{Arg, App};
 use iron::prelude::*;
 use iron::status;
 use params::{Params, Value};
 use std::env;
-//use rust_iron::WilfSet;
-//use rust_iron::wilf;
-use rust_iron::semigroup::{Semi, semi};
+use rust_iron::modules::*;
+use rust_iron::modules::wilf::{WilfSet,generatewilf};
+use rust_iron::modules::semigroup::{Semi, semi};
 use crossbeam::thread;
 
 
@@ -50,16 +51,22 @@ fn computation( primes:&[usize], task:(usize,usize)){
         generators.sort();
         generators.dedup();
 
-//        let res:WilfSet= wilf(&generators);
-        //      println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
-        //             skip+1, res.maxgap as f64/res.g1 as f64, res.maxgap, res.g1, res.e, res.c<max);//, res.gen_set);
-
+//        let res:WilfSet= generatewilf(&generators);
+//              println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} wilf {}",
+//                     skip+1, res.maxgap as f64/res.g1 as f64,
+//                       res.maxgap, res.g1, res.e,  (res.count_set as f64)/(res.c as f64));//, res.gen_set);
+//              println!("Wilf Menge<f {} Erzeuger {:?}",res.count_set, res.gen_set);
         let res2: Semi = semi(&generators);
         //println!("n={:4} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} status {}",
         //       skip+1, res2.maxgap as f64/res2.g1 as f64, res2.maxgap, res2.g1, res2.e, res2.c<max);//, res.gen_set);
-        let ausgabe = format!("{:5};{:.8};{:8};{:5}\n",
-                 skip + 1, res2.maxgap as f64 / res2.g1 as f64, res2.maxgap, res2.g1);//, res.gen_set);
-        //println!("{}",ausgabe);
+
+        let ausgabe = format!("Semi {:5};{:.8};{:8};{:5};e={:8};wilf={}\n",
+                 skip + 1, res2.maxgap as f64 / res2.g1 as f64,
+                           res2.maxgap, res2.g1, res2.e, res2.count_set as f64/res2.c as f64);//, res.gen_set);
+        print!("{}",ausgabe);
+        println!("Semi Menge<f {} Erzeuger {:?}\n",res2.count_set, res2.gen_set);
+        //assert_eq!(res.e,res2.e);
+        //assert_eq!(res.c,res2.c);
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
         last_apery.clear();
@@ -102,12 +109,12 @@ fn main() {
         .arg(Arg::with_name("start")
             .help("where to begin, a n th prime")
             .required(true)
-            .default_value("1")
+            .default_value("50")
         )
         .arg(Arg::with_name("stop")
             .help("where to stop, a n th prime")
             .required(true)
-            .default_value("10")
+            .default_value("55")
         )
 
         .get_matches();
@@ -137,7 +144,7 @@ fn index(request: &mut Request) -> IronResult<Response> {
         Some(&Value::String(ref samples)) => samples,
         _ => "1",
     };
-    let result = &rust_iron::from_string_input(inputnumbers, inputsamples);
+    let result = from_string_input(inputnumbers, inputsamples);
     let mut response = Response::new();
     response.set_mut(status::Ok);
     response.set_mut(mime!(Text/Html; Charset=Utf8));
@@ -508,7 +515,7 @@ a.pure-button-primary {
         </div>
         <div class="pure-g">
 "##);
-    page.push_str(result);
+    page.push_str(&result);
     page.push_str(r##"
         </div>
 

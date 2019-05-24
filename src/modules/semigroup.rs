@@ -1,4 +1,5 @@
 use super::gcd_vec;
+use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Semi {
@@ -17,15 +18,18 @@ pub struct Semi {
 }
 
 impl Semi {
-    fn new(set:Vec<usize>, apery: Vec<usize>, g1: usize) -> Self {
+    fn new(set:Vec<usize>, apery: Vec<usize>, g1: usize, gens:Vec<usize>) -> Self {
         let max_a: usize = *apery.iter().max().unwrap();
         let min_a: usize = *apery[1..].iter().min().unwrap();
         let a1: usize = apery[1];
-        let count_set = set.len();
+        let mut count_set= 0usize;
+        for s in set {
+            if s<max_a-g1 { count_set+=1;}
+        }
         let sum = apery.iter().sum();
         let count_gap = (sum - ((g1-1)*g1)/2)/g1;
         let double_avg_a = 2 * sum / apery.len();
-        let gen_set = vec![1usize;1];
+        let gen_set = gens;
         assert!(g1 < min_a);
         Semi {
             apery: apery,
@@ -64,6 +68,7 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
 
     // fenster der länge 2g_1
     let m = minimal_input;
+    result.push(0usize);
     let width = 2 * maximal_input;
     let mut window = vec![0usize;width]; // fenster hat die länge 2m
     window[0] = 1;
@@ -76,7 +81,7 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
     let upperbound = maximal_input * maximal_input+1;
     let mut hit:bool = false;
 
-    while i < upperbound && runlength < minimal_input {
+    while i < upperbound && runlength < m {
 
         for k in input.iter() {
             assert!(m<=lookupindex && lookupindex<width,"index");
@@ -108,5 +113,24 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
             lookupindex += 1;
         }
     }
-    Semi::new(result, aperyset, minimal_input)
+    let minimal_generators: Vec<usize> = compute_gen_set(&aperyset, m);
+    Semi::new(result, aperyset, minimal_input, minimal_generators)
+}
+
+fn compute_gen_set(apery:&[usize], m:usize) ->Vec<usize>{
+    let len=apery.len();
+    let mut gen:HashSet<usize> = HashSet::new();
+    for i in 1..len { gen.insert(apery[i]);}
+    for i in 1..len {
+        for j in i..len {
+            let value = apery[i]+apery[j];
+            let contains = gen.contains(&value);
+            if contains { gen.remove(&value);}
+        }
+    }
+    let mut result = Vec::<usize>::new();
+    result.push(m);
+    for g in gen { result.push(g)}
+    result.sort();
+    result
 }
