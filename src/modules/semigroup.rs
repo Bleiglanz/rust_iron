@@ -52,17 +52,14 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
     // let d = gcd_vec(inputnumbers);
     // let mut input: Vec<usize> = inputnumbers.iter().map(|x| (x / d) as usize).collect();
     // input.sort();
-    let maximal_input: usize = *(inputnumbers.iter().max().unwrap());
+    let maximal_input: usize = *inputnumbers.last().unwrap();
     let width=2*maximal_input;
-    let m: usize = *(inputnumbers.iter().min().unwrap());
-    assert_eq!(m,inputnumbers[0]);
-    assert_eq!(maximal_input,inputnumbers[inputnumbers.len()-1]);
+    let m: usize = *inputnumbers.first().unwrap();
     let mut aperyset: Vec<usize> = vec![0; m];
     let mut count_set = 0usize;
-    let mut window = vec![-1isize; width]; // fenster hat die länge 2m
-    let mut i: usize = m;
-    let mut h: usize = 0; // verbrauchte fenster
-    let mut windowindex = m;
+    let mut window = vec![-1isize; width]; // fenster hat die länge 2max
+    let mut i: usize = m; // startindex
+    let mut windowindex = m; // am anfang = i
     let mut runlength = 1usize; // anzahl aufeinanderfoldender hits
     let mut hit: bool = false;
     let mut minimal_generators: Vec<usize> = Vec::with_capacity(m);
@@ -75,16 +72,20 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
             runlength += 1;
             hit = true;
             window[windowindex] = i as isize;
-        } else {
-            for k in inputnumbers.iter() {
+        } else if aperyset[residue]>0 && i > aperyset[residue] {
+            count_set += 1;
+            runlength += 1;
+            hit = true;
+            window[windowindex] = i as isize;
+        }
+        else {
+            for k in inputnumbers[1..].iter() {
                 if windowindex >= *k && window[windowindex - k] >= 0 {
                     count_set += 1;
                     runlength += 1;
                     hit = true;
                     window[windowindex] = i as isize;
-                    if 0 == aperyset[residue] {
-                        aperyset[residue] = i;
-                    }
+                    aperyset[residue] = i;
                     if 0==window[windowindex - k] {
                         minimal_generators.push(i);
                     }
@@ -98,9 +99,7 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
         if windowindex == width - 1 {
             for j in 0..maximal_input {
                 window[j] = window[j + maximal_input];
-                window[j + m] = -1;
             }
-            h = h + 1;
             windowindex = maximal_input;
         } else {
             windowindex += 1;

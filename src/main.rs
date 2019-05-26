@@ -45,10 +45,10 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
                      res2.maxgap, res2.g1, res2.e, res2.count_set,
                      res2.maxgap as f64 / res2.g1 as f64, res2.count_set as f64 / res2.c as f64);
 
-        print!("{}", ausgabe);
+        if detail { print!("{}", ausgabe); }
         if detail {
             let res: WilfSet = generatewilf(&primes[skip..maxindex]);
-            println!("{:6};Wilf p<_<{}p;f;{:6};m{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:",
+            println!("{:6};Wilf <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:",
                      skip + 1, factor,
                      res.maxgap, res.g1, res.e, res.count_set,
                      res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
@@ -57,6 +57,11 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
             assert_eq!(res.e, res2.e);
             assert_eq!(res.c, res2.c);
             assert_eq!(res.count_set, res2.count_set);
+            let l = res.lambda_matrix;
+            for i in 0..res.g1 {
+                print!("{:2}",l[1][i]);
+            }
+            println!("\n a1={} höhe {}",res.apery[1],(res.apery[1]-1)/res.g1);
         }
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
@@ -113,7 +118,7 @@ fn main() {
         .arg(Arg::with_name("detail")
             .help("if 1, show details")
             .required(true)
-            .default_value("0")
+            .default_value("1")
         )
         .get_matches();
 

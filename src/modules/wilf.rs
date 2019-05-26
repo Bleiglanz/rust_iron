@@ -16,7 +16,7 @@ pub struct WilfSet {
     pub gen_set: Vec<usize>,
     pub e:usize,
     pub c:usize,
-    lambda_matrix:Vec<Vec<usize>>,
+    pub lambda_matrix:Vec<Vec<usize>>,
     pub a1:usize,
 }
 
