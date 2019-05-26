@@ -52,11 +52,12 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
     // let d = gcd_vec(inputnumbers);
     // let mut input: Vec<usize> = inputnumbers.iter().map(|x| (x / d) as usize).collect();
     // input.sort();
-
     let maximal_input: usize = *(inputnumbers.iter().max().unwrap());
     let width=2*maximal_input;
     let m: usize = *(inputnumbers.iter().min().unwrap());
-    let mut aperyset: Vec<usize> = vec![0usize; m];
+    assert_eq!(m,inputnumbers[0]);
+    assert_eq!(maximal_input,inputnumbers[inputnumbers.len()-1]);
+    let mut aperyset: Vec<usize> = vec![0; m];
     let mut count_set = 0usize;
     let mut window = vec![-1isize; width]; // fenster hat die länge 2m
     let mut i: usize = m;
@@ -96,7 +97,7 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
         i += 1;
         if windowindex == width - 1 {
             for j in 0..maximal_input {
-                window[j] = window[j + m];
+                window[j] = window[j + maximal_input];
                 window[j + m] = -1;
             }
             h = h + 1;
@@ -105,7 +106,6 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
             windowindex += 1;
         }
     }
-
     Semi::new(count_set-m+1, aperyset, m, minimal_generators)
 }
 

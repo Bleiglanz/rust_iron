@@ -22,12 +22,10 @@ fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
     let start = task.0;
     let stop = task.1;
 
-    let mut last_apery: Vec<usize> = vec![];
-
-    fn findmax6(s: &[usize], start: usize) -> usize {
+    fn findmaxindex(s:&[usize], start: usize) -> usize {
         let mut max = start;
         loop {
-            if s[max] <= 6 * s[start] {
+            if s[max] < 2* s[start] {
                 max = max + 1;
             } else {
                 break;
@@ -39,45 +37,35 @@ fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
     let mut out = std::fs::File::create(format!("./out_{}_{}.csv", start, stop)).expect("Unable to create file");
 
     for skip in start..stop {
-        let mut input: Vec<usize> = Vec::new();
-        input.extend_from_slice(&primes[skip..findmax6(&primes, skip)]);
-        let first = input[0].clone();
-        let max = first * 6;
-        let mut generators: Vec<usize> = Vec::with_capacity(input.len());
-        for g in input {
-            if g < max { generators.push(g) }
-        }
-        generators.sort();
-        generators.dedup();
+        let maxindex :usize = findmaxindex(&primes, skip);
 
-        if detail {
-            let res: WilfSet = generatewilf(&generators);
-            println!("Wilf {:5} bruch {:.4}: frobenius = {:4} und m={:4} und e={:4} wilf {}",
-                     skip + 1, res.maxgap as f64 / res.g1 as f64,
-                     res.maxgap, res.g1, res.e, (res.count_set as f64) / (res.c as f64));//, res.gen_set);
-            println!("Wilf Menge<f {} Erzeuger {:?}", res.count_set, res.gen_set);
-        }
-        let res2: Semi = semi(&generators);
-        let ausgabe = format!("Semi {:5};{:.8};{:8};{:5};e={:8};wilf={}\n",
-                              skip + 1, res2.maxgap as f64 / res2.g1 as f64,
-                              res2.maxgap, res2.g1, res2.e, res2.count_set as f64 / res2.c as f64);//, res.gen_set);
+        let res2: Semi = semi(&primes[skip..maxindex]);
+        let ausgabe = format!("Semi;{:6};f;{:6};m{:6};e={:6};S<f;{:8}; f/p;{:.6};wilf; {:.6}:\n",
+                     skip + 1,
+                     res2.maxgap, res2.g1, res2.e, res2.count_set,
+                     res2.maxgap as f64 / res2.g1 as f64, res2.count_set as f64 / res2.c as f64);
+
         print!("{}", ausgabe);
-        if detail{
-            println!("Semi Menge<f {} Erzeuger {:?}\n", res2.count_set, res2.gen_set);
+        if detail {
+            let res: WilfSet = generatewilf(&primes[skip..maxindex]);
+            println!("Wilf;{:6};f;{:6};m{:6};e={:6};S<f;{:8}; f/p;{:.6};wilf; {:.6}:",
+                     skip + 1,
+                     res.maxgap, res.g1, res.e, res.count_set,
+                     res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
+            assert_eq!(res.apery, res2.apery);
+            assert_eq!(res.gen_set, res2.gen_set);
+            assert_eq!(res.e, res2.e);
+            assert_eq!(res.c, res2.c);
+            assert_eq!(res.count_set, res2.count_set);
         }
-        //assert_eq!(res.e, res2.e);
-        //assert_eq!(res.c, res2.c);
-        //assert_eq!(res.count_set, res2.count_set);
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
-        last_apery.clear();
-        last_apery.extend_from_slice(&res2.apery[1..]);
     }
     println!("Task beendet {}-{}", start, stop);
 }
 
 
-fn mainprimes(cores: usize, start: usize, stop: usize) {
+fn mainprimes(cores: usize, start: usize, stop: usize, detail:bool) {
     let interval = (stop - start) / cores;
     let mut tasks: Vec<(usize, usize)> = Vec::new();
     for ti in 0..cores {
@@ -91,7 +79,7 @@ fn mainprimes(cores: usize, start: usize, stop: usize) {
         let sta = task.0;
         let sto = task.1;
         s.spawn(move |_| {
-            computation(primes, (sta, sto), cores == 1);
+            computation(primes, (sta, sto),  detail);
         });
     }).unwrap();
 }
@@ -110,21 +98,26 @@ fn main() {
         .arg(Arg::with_name("start")
             .help("where to begin, a n th prime")
             .required(true)
-            .default_value("115")
+            .default_value("1")
         )
         .arg(Arg::with_name("stop")
             .help("where to stop, a n th prime")
             .required(true)
-            .default_value("120")
+            .default_value("100")
         )
-
+        .arg(Arg::with_name("detail")
+            .help("if 1, show details")
+            .required(true)
+            .default_value("0")
+        )
         .get_matches();
 
     let cores: usize = matches.value_of("cores").unwrap().parse().unwrap();
     let start: usize = matches.value_of("start").unwrap().parse().unwrap();
     let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
+    let detail:&str = matches.value_of("detail").unwrap();
     if cores > 0 {
-        mainprimes(cores, start, stop);
+        mainprimes(cores, start, stop,(detail != "0"));
     }
     dotenv::dotenv().expect("Failed to read .env file");
     match env::var("WILFPORTs") {
