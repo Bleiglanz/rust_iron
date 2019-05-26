@@ -18,14 +18,14 @@ use rust_iron::modules::semigroup::{Semi, semi};
 use crossbeam::thread;
 
 
-fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
+fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: bool) {
     let start = task.0;
     let stop = task.1;
 
-    fn findmaxindex(s:&[usize], start: usize) -> usize {
+    fn findmaxindex(s:&[usize], start: usize, factor:usize) -> usize {
         let mut max = start;
         loop {
-            if s[max] < 2* s[start] {
+            if s[max] < factor * s[start] {
                 max = max + 1;
             } else {
                 break;
@@ -34,22 +34,22 @@ fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
         max
     }
 
-    let mut out = std::fs::File::create(format!("./out_{}_{}.csv", start, stop)).expect("Unable to create file");
+    let mut out = std::fs::File::create(format!("./outinterv{}_{}_{}.csv", factor, start, stop)).expect("Unable to create file");
 
     for skip in start..stop {
-        let maxindex :usize = findmaxindex(&primes, skip);
+        let maxindex :usize = findmaxindex(&primes, skip, factor);
 
         let res2: Semi = semi(&primes[skip..maxindex]);
-        let ausgabe = format!("Semi;{:6};f;{:6};m{:6};e={:6};S<f;{:8}; f/p;{:.6};wilf; {:.6}:\n",
-                     skip + 1,
+        let ausgabe = format!("{:6};Semi <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:\n",
+                     skip + 1,factor,
                      res2.maxgap, res2.g1, res2.e, res2.count_set,
                      res2.maxgap as f64 / res2.g1 as f64, res2.count_set as f64 / res2.c as f64);
 
         print!("{}", ausgabe);
         if detail {
             let res: WilfSet = generatewilf(&primes[skip..maxindex]);
-            println!("Wilf;{:6};f;{:6};m{:6};e={:6};S<f;{:8}; f/p;{:.6};wilf; {:.6}:",
-                     skip + 1,
+            println!("{:6};Wilf p<_<{}p;f;{:6};m{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:",
+                     skip + 1, factor,
                      res.maxgap, res.g1, res.e, res.count_set,
                      res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
             assert_eq!(res.apery, res2.apery);
@@ -65,7 +65,7 @@ fn computation(primes: &[usize], task: (usize, usize), detail: bool) {
 }
 
 
-fn mainprimes(cores: usize, start: usize, stop: usize, detail:bool) {
+fn mainprimes(cores: usize, start: usize, stop: usize, factor:usize, detail:bool) {
     let interval = (stop - start) / cores;
     let mut tasks: Vec<(usize, usize)> = Vec::new();
     for ti in 0..cores {
@@ -79,7 +79,7 @@ fn mainprimes(cores: usize, start: usize, stop: usize, detail:bool) {
         let sta = task.0;
         let sto = task.1;
         s.spawn(move |_| {
-            computation(primes, (sta, sto),  detail);
+            computation(primes, (sta, sto),  factor, detail);
         });
     }).unwrap();
 }
@@ -105,6 +105,11 @@ fn main() {
             .required(true)
             .default_value("100")
         )
+        .arg(Arg::with_name("factor")
+            .help("take all primes as generators p_start <= gen  < factor*p_start")
+            .required(true)
+            .default_value("2")
+        )
         .arg(Arg::with_name("detail")
             .help("if 1, show details")
             .required(true)
@@ -115,9 +120,10 @@ fn main() {
     let cores: usize = matches.value_of("cores").unwrap().parse().unwrap();
     let start: usize = matches.value_of("start").unwrap().parse().unwrap();
     let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
+    let factor: usize = matches.value_of("factor").unwrap().parse().unwrap();
     let detail:&str = matches.value_of("detail").unwrap();
     if cores > 0 {
-        mainprimes(cores, start, stop,(detail != "0"));
+        mainprimes(cores, start, stop, factor, detail != "0");
     }
     dotenv::dotenv().expect("Failed to read .env file");
     match env::var("WILFPORTs") {
