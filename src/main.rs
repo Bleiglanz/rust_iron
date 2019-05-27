@@ -57,11 +57,7 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
             assert_eq!(res.e, res2.e);
             assert_eq!(res.c, res2.c);
             assert_eq!(res.count_set, res2.count_set);
-            let l = res.lambda_matrix;
-            for i in 0..res.g1 {
-                print!("{:2}",l[1][i]);
-            }
-            println!("\n a1={} höhe {}",res.apery[1],(res.apery[1]-1)/res.g1);
+            println!("\n           a1={} abar {}",res.apery[1],res.double_avg_a/2);
         }
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");

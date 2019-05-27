@@ -7,7 +7,7 @@ pub struct WilfSet {
     pub apery: Vec<usize>,
     max_a: usize,
     sum_a: usize,
-    double_avg_a: usize,
+    pub double_avg_a: usize,
     pub maxgap: usize,
     pub g1: usize,
     pub count_set: usize,
