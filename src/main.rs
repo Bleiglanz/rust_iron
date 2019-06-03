@@ -59,7 +59,6 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
                      skip + 1, factor,
                      res.maxgap, res.g1, res.e, res.count_set,
                      res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
-
             assert_eq!(res.apery, resf.apery);
             assert_eq!(res.gen_set, resf.gen_set);
             assert_eq!(res.e, resf.e);
@@ -72,11 +71,6 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
             assert_eq!(resf.c, res2.c);
             assert_eq!(resf.count_set, res2.count_set);
             assert_eq!(resf.count_gap, res2.count_gap);
-            //let l = res.lambda_matrix;
-            //for i in 0..res.g1 {
-            //    print!("{:2}",l[1][i]);
-            //}
-            //println!("\n a1={} höhe {}",res.apery[1],(res.apery[1]-1)/res.g1);
         }
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
