@@ -6,6 +6,7 @@ use std::str::FromStr;
 
 pub mod semigroup;
 pub mod wilf;
+pub mod fast_semigroup;
 
 pub fn gcd(mut m: usize, mut n: usize) -> usize {
     assert!(m != 0 && n != 0);

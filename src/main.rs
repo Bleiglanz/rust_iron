@@ -16,6 +16,7 @@ use rust_iron::modules::*;
 use rust_iron::modules::wilf::{WilfSet, generatewilf};
 use rust_iron::modules::semigroup::{Semi, semi};
 use crossbeam::thread;
+use rust_iron::modules::fast_semigroup::{Fast, fast};
 
 
 fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: bool) {
@@ -38,30 +39,44 @@ fn computation(primes: &[usize], task: (usize, usize), factor:usize, detail: boo
 
     for skip in start..stop {
         let maxindex :usize = findmaxindex(&primes, skip, factor);
-
-        let res2: Semi = semi(&primes[skip..maxindex]);
-        let ausgabe = format!("{:6};Semi <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:\n",
+        let res2: Fast = fast(&primes[skip..maxindex]);
+        let ausgabe = format!("{:6};Fast <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}\n",
                      skip + 1,factor,
                      res2.maxgap, res2.g1, res2.e, res2.count_set,
                      res2.maxgap as f64 / res2.g1 as f64, res2.count_set as f64 / res2.c as f64);
 
         if detail { print!("{}", ausgabe); }
         if detail {
+            let resf: Semi = semi(&primes[skip..maxindex]);
+            let fausgabe = format!("{:6};Semi<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}",
+                                  skip + 1,factor,
+                                  resf.maxgap, resf.g1, resf.e, resf.count_set,
+                                  resf.maxgap as f64 / resf.g1 as f64, resf.count_set as f64 / resf.c as f64);
+            println!("{}",fausgabe);
+
             let res: WilfSet = generatewilf(&primes[skip..maxindex]);
-            println!("{:6};Wilf <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}:",
+            println!("{:6};Wilf <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}\n",
                      skip + 1, factor,
                      res.maxgap, res.g1, res.e, res.count_set,
                      res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
-            assert_eq!(res.apery, res2.apery);
-            assert_eq!(res.gen_set, res2.gen_set);
-            assert_eq!(res.e, res2.e);
-            assert_eq!(res.c, res2.c);
-            assert_eq!(res.count_set, res2.count_set);
-            let l = res.lambda_matrix;
-            for i in 0..res.g1 {
-                print!("{:2}",l[1][i]);
-            }
-            println!("\n a1={} höhe {}",res.apery[1],(res.apery[1]-1)/res.g1);
+
+            assert_eq!(res.apery, resf.apery);
+            assert_eq!(res.gen_set, resf.gen_set);
+            assert_eq!(res.e, resf.e);
+            assert_eq!(res.c, resf.c);
+            assert_eq!(res.count_set, resf.count_set);
+            assert_eq!(resf.max_a, res2.max_a);
+            assert_eq!(resf.sum_a, res2.sum_a);
+            assert_eq!(resf.count_set, res2.count_set);
+            assert_eq!(resf.e, res2.e);
+            assert_eq!(resf.c, res2.c);
+            assert_eq!(resf.count_set, res2.count_set);
+            assert_eq!(resf.count_gap, res2.count_gap);
+            //let l = res.lambda_matrix;
+            //for i in 0..res.g1 {
+            //    print!("{:2}",l[1][i]);
+            //}
+            //println!("\n a1={} höhe {}",res.apery[1],(res.apery[1]-1)/res.g1);
         }
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
@@ -103,7 +118,7 @@ fn main() {
         .arg(Arg::with_name("start")
             .help("where to begin, a n th prime")
             .required(true)
-            .default_value("1")
+            .default_value("10")
         )
         .arg(Arg::with_name("stop")
             .help("where to stop, a n th prime")

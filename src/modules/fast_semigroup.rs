@@ -2,50 +2,36 @@
 //use std::collections::HashSet;
 
 #[derive(Debug)]
-pub struct Semi {
-    pub apery: Vec<usize>,
+pub struct Fast {
     pub max_a: usize,
     pub sum_a: usize,
-    double_avg_a: usize,
     pub maxgap: usize,
     pub g1: usize,
     pub count_set: usize,
     pub count_gap: usize,
-    pub gen_set: Vec<usize>,
     pub e: usize,
     pub c: usize,
-    pub a1: usize,
 }
 
-impl Semi {
-    fn new(count_set: usize, apery: Vec<usize>, g1: usize, gens: Vec<usize>) -> Self {
-        let max_a: usize = *apery.iter().max().unwrap();
-        let min_a: usize = *apery[1..].iter().min().unwrap();
-        let a1: usize = apery[1];
-        let sum = apery.iter().sum();
+impl Fast {
+    fn new(count_set: usize, max_a: usize, g1: usize, mingencount:usize, sum:usize) -> Self {
         let count_gap = (sum - ((g1 - 1) * g1) / 2) / g1;
-        let double_avg_a = 2 * sum / apery.len();
-        let gen_set = gens;
-        assert!(g1 < min_a);
-        Semi {
-            apery,
-            max_a,
+        let c = max_a-g1+1;
+        Fast {
+            max_a:max_a,
             sum_a: sum,
-            double_avg_a,
             g1: g1,
             maxgap: max_a - g1,
             count_set,
             count_gap: count_gap,
-            e: gen_set.len(),
-            gen_set: gen_set,
-            c: max_a - g1 + 1,
-            a1: a1,
+            e: mingencount,
+            c,
         }
     }
 }
 
 
-pub fn semi(inputnumbers: &[usize]) -> Semi {
+pub fn fast(inputnumbers: &[usize]) -> Fast {
 
     // nicht nötig wenn nur primzahlen richtig sortiert reinkommen
     // teilerfremd machen und sortieren
@@ -56,14 +42,15 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
     let width=2*maximal_input;
     let m: usize = *inputnumbers.first().unwrap();
     let mut aperyset: Vec<usize> = vec![0; m];
-    let mut count_set = 0usize;
+    let mut count_set = 1usize; // 0 schon dabei!
     let mut window = vec![-1isize; width]; // fenster hat die länge 2max
     let mut i: usize = m; // startindex
     let mut windowindex = m; // am anfang = i
     let mut runlength = 1usize; // anzahl aufeinanderfoldender hits
     let mut hit: bool = false;
-    let mut minimal_generators: Vec<usize> = Vec::with_capacity(m);
-    minimal_generators.push(m);
+    let mut max_apery:usize = m;
+    let mut sum_apery:usize = 0;
+    let mut minimal_generators:usize = 1;
     window[0]=0;
     while runlength < m {
         let residue = i % m;
@@ -86,8 +73,10 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
                     hit = true;
                     window[windowindex] = i as isize;
                     aperyset[residue] = i;
+                    sum_apery+=i;
+                    if i>max_apery { max_apery = i}
                     if 0==window[windowindex - k] {
-                        minimal_generators.push(i);
+                        minimal_generators+=1;
                     }
                     break;
                 }
@@ -105,6 +94,7 @@ pub fn semi(inputnumbers: &[usize]) -> Semi {
             windowindex += 1;
         }
     }
-    Semi::new(count_set-m+1, aperyset, m, minimal_generators)
+
+    Fast::new(count_set-m, max_apery, m, minimal_generators, sum_apery)
 }
 
