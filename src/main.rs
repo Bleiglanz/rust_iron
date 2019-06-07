@@ -23,34 +23,42 @@ fn computation(primes: &[usize], task: (usize, usize), factor1:usize, factor2:us
     let start = task.0;
     let stop = task.1;
 
-//    fn findmaxindex(s:&[usize], start: usize, factor:usize) -> usize {
-//        let mut max = start;
-//        loop {
-//            if s[max] < factor * s[start] {
-//                max = max + 1;
-//            } else {
-//                break;
-//            }
-//        }
-//        max
-//    }
+    fn findmaxindex(s:&[usize], start: usize, factor:usize) -> usize {
+        if 1==factor {
+            start
+        } else {
+            let mut max = start;
+            loop {
+                if s[max] < factor * s[start] {
+                    max = max + 1;
+                } else {
+                    break;
+                }
+            }
+            max
+        }
+    }
 
     let mut out = std::fs::File::create(format!("./outinterv{}pto{}p_{}_{}.csv", factor1, factor2, start, stop)).expect("Unable to create file");
 
     for skip in start..stop {
-        //let maxindex :usize = findmaxindex(&primes, skip, factor);
+
+        let minindex :usize = findmaxindex(&primes, skip, factor1);
+        let maxindex :usize = findmaxindex(&primes, skip, factor2);
+
+        for i in (minindex+2)..maxindex {
+
+
 
         let first:usize = (primes[skip]).clone();
-        let gens:Vec<usize> = primes.iter()
-            .skip_while(|x|{*x.clone()<=factor1*first})
-            .take_while(|x|{*x.clone()<factor2*first}).map(|y|{*y}).collect();
+        let gens:&[usize] = &primes[minindex..i];
 
         let res2: Fast = fast(&gens);//&primes[skip..maxindex]);
-        let ausgabe = format!("{:6};{}; prime Fast {}p<=..<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/m;{:.6};f/p{:.6}\n",
-                     skip + 1,first,factor1,factor2,
+        let ausgabe = format!("n;{:6};p_n;{}; Halbgruppe bis zur {}ten in {}p<=..<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/m;{:.6};f/p;{:.6}\n",
+                     skip + 1,first,i,factor1,factor2,
                      res2.maxgap, res2.g1, res2.e, res2.count_set,
                      res2.maxgap as f64 / res2.g1 as f64, res2.maxgap as f64 / first as f64);
-
+        print!("{}",ausgabe);
         if detail { print!("{}", ausgabe); }
         if detail {
             let resf: Semi = semi(&gens);//&primes[skip..maxindex]);
@@ -80,6 +88,7 @@ fn computation(primes: &[usize], task: (usize, usize), factor1:usize, factor2:us
         }
         use std::io::Write;
         out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
+    }
     }
     println!("Task beendet {}-{}", start, stop);
 }
