@@ -17,14 +17,14 @@ use rust_iron::modules::wilf::{WilfSet, generatewilf};
 use rust_iron::modules::semigroup::{Semi, semi};
 use crossbeam::thread;
 use rust_iron::modules::fast_semigroup::{Fast, fast};
+use std::io::Write;
 
-
-fn computation(primes: &[usize], task: (usize, usize), factor1:usize, factor2:usize, detail: bool) {
+fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: usize, detail: bool) {
     let start = task.0;
     let stop = task.1;
 
-    fn findmaxindex(s:&[usize], start: usize, factor:usize) -> usize {
-        if 1==factor {
+    fn findmaxindex(s: &[usize], start: usize, factor: usize) -> usize {
+        if 1 == factor {
             start
         } else {
             let mut max = start;
@@ -40,61 +40,74 @@ fn computation(primes: &[usize], task: (usize, usize), factor1:usize, factor2:us
     }
 
     let mut out = std::fs::File::create(format!("./outinterv{}pto{}p_{}_{}.csv", factor1, factor2, start, stop)).expect("Unable to create file");
+    let head = "       n;     n+k;       k;fak1;fak2;     p_n;    p_n+1;   p_n+k;    m(S);    e(S);  #(S<F);    f(S);f(S)-3m(S); stable\n";
+    out.write_all(head.as_bytes()).expect("head?");
+    print!("{}", head);
+
 
     for skip in start..stop {
 
-        let minindex :usize = findmaxindex(&primes, skip, factor1);
-        let maxindex :usize = findmaxindex(&primes, skip, factor2);
+        let minindex: usize = findmaxindex(&primes, skip, factor1);
+        let maxindex: usize = findmaxindex(&primes, skip, factor2) + 1;
+        let stable = fast(&primes[minindex..maxindex]);
 
-        for i in (minindex+2)..maxindex {
+        for i in (minindex + 2)..maxindex {
+            let first: usize = (primes[skip]).clone();
+            let gens: &[usize] = &primes[minindex..i];
 
+            let res2: Fast = fast(&gens);//&primes[skip..maxindex]);
+            let ausgabe = format!("{:8};{:8};{:8};{:4};{:4};{:8};{:8};{:8};{:8};{:8};{:8};{:8};{:10};{}\n",
+                                  skip + 1, i, i - (skip + 1),
+                                  factor1, factor2,
+                                  first, primes[minindex+1], primes[i - 1],
+                                  res2.g1, res2.e,
+                                  res2.count_set, res2.maxgap, res2.maxgap as i64 - 3i64 * res2.g1 as i64,
+                                  if stable.maxgap==res2.maxgap && stable.count_set==res2.count_set {
+                                      "stable S"
+                                  } else {""},
 
+            );
+            print!("{}", ausgabe);
 
-        let first:usize = (primes[skip]).clone();
-        let gens:&[usize] = &primes[minindex..i];
+            if detail { print!("{}", ausgabe); }
+            if detail {
+                let resf: Semi = semi(&gens);//&primes[skip..maxindex]);
+                let fausgabe = format!("{:6};Semi<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}",
+                                       skip + 1, factor1,
+                                       resf.maxgap, resf.g1, resf.e, resf.count_set,
+                                       resf.maxgap as f64 / resf.g1 as f64, resf.count_set as f64 / resf.c as f64);
+                println!("{}", fausgabe);
 
-        let res2: Fast = fast(&gens);//&primes[skip..maxindex]);
-        let ausgabe = format!("n;{:6};p_n;{}; Halbgruppe bis zur {}ten in {}p<=..<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/m;{:.6};f/p;{:.6}\n",
-                     skip + 1,first,i,factor1,factor2,
-                     res2.maxgap, res2.g1, res2.e, res2.count_set,
-                     res2.maxgap as f64 / res2.g1 as f64, res2.maxgap as f64 / first as f64);
-        print!("{}",ausgabe);
-        if detail { print!("{}", ausgabe); }
-        if detail {
-            let resf: Semi = semi(&gens);//&primes[skip..maxindex]);
-            let fausgabe = format!("{:6};Semi<{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}",
-                                  skip + 1,factor1,
-                                  resf.maxgap, resf.g1, resf.e, resf.count_set,
-                                  resf.maxgap as f64 / resf.g1 as f64, resf.count_set as f64 / resf.c as f64);
-            println!("{}",fausgabe);
+                let res: WilfSet = generatewilf(&gens);//&primes[skip..maxindex]);
+                println!("{:6};Wilf <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}\n",
+                         skip + 1, factor1,
+                         res.maxgap, res.g1, res.e, res.count_set,
+                         res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
+                assert_eq!(res.apery, resf.apery);
+                assert_eq!(res.gen_set, resf.gen_set);
+                assert_eq!(res.e, resf.e);
+                assert_eq!(res.c, resf.c);
+                assert_eq!(res.count_set, resf.count_set);
+                assert_eq!(resf.max_a, res2.max_a);
+                assert_eq!(resf.sum_a, res2.sum_a);
+                assert_eq!(resf.count_set, res2.count_set);
+                assert_eq!(resf.e, res2.e);
+                assert_eq!(resf.c, res2.c);
+                assert_eq!(resf.count_set, res2.count_set);
+                assert_eq!(resf.count_gap, res2.count_gap);
+            }
 
-            let res: WilfSet = generatewilf(&gens);//&primes[skip..maxindex]);
-            println!("{:6};Wilf <{}p;f;{:6};m;{:6};e;{:6};S<f;{:8};f/p;{:.6};wilf;{:.6}\n",
-                     skip + 1, factor1,
-                     res.maxgap, res.g1, res.e, res.count_set,
-                     res.maxgap as f64 / res.g1 as f64, (res.count_set as f64) / (res.c as f64));
-            assert_eq!(res.apery, resf.apery);
-            assert_eq!(res.gen_set, resf.gen_set);
-            assert_eq!(res.e, resf.e);
-            assert_eq!(res.c, resf.c);
-            assert_eq!(res.count_set, resf.count_set);
-            assert_eq!(resf.max_a, res2.max_a);
-            assert_eq!(resf.sum_a, res2.sum_a);
-            assert_eq!(resf.count_set, res2.count_set);
-            assert_eq!(resf.e, res2.e);
-            assert_eq!(resf.c, res2.c);
-            assert_eq!(resf.count_set, res2.count_set);
-            assert_eq!(resf.count_gap, res2.count_gap);
+            out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
+            if stable.maxgap==res2.maxgap && stable.count_set==res2.count_set {
+                break;
+            }
         }
-        use std::io::Write;
-        out.write_all(ausgabe.as_bytes()).expect("ausgabe??");
-    }
     }
     println!("Task beendet {}-{}", start, stop);
 }
 
 
-fn mainprimes(cores: usize, start: usize, stop: usize, factor1:usize, factor2:usize, detail:bool) {
+fn mainprimes(cores: usize, start: usize, stop: usize, factor1: usize, factor2: usize, detail: bool) {
     let interval = (stop - start) / cores;
     let mut tasks: Vec<(usize, usize)> = Vec::new();
     for ti in 0..cores {
@@ -102,13 +115,13 @@ fn mainprimes(cores: usize, start: usize, stop: usize, factor1:usize, factor2:us
     }
 
     let primesvec: Vec<usize> = primal::Primes::all().take(8000000).collect();
-    let primes:&[usize] = &primesvec;
+    let primes: &[usize] = &primesvec;
     println!("Primgruppen {:?}", tasks);
     thread::scope(|s| for task in &tasks {
         let sta = task.0;
         let sto = task.1;
         s.spawn(move |_| {
-            computation(primes, (sta, sto),  factor1, factor2, detail);
+            computation(primes, (sta, sto), factor1, factor2, detail);
         });
     }).unwrap();
 }
@@ -132,17 +145,17 @@ fn main() {
         .arg(Arg::with_name("stop")
             .help("where to stop, a n th prime")
             .required(true)
-            .default_value("100")
+            .default_value("12")
         )
         .arg(Arg::with_name("factor1")
-                 .help("take all primes as generators factor1*p_start <= gen  < factor2*p_start")
-                 .required(true)
-                 .default_value("1")
+            .help("take all primes as generators factor1*p_start <= gen  < factor2*p_start")
+            .required(true)
+            .default_value("1")
         )
         .arg(Arg::with_name("factor2")
             .help("take all primes as generators factor1*p_start <= gen  < factor2*p_start")
             .required(true)
-            .default_value("2")
+            .default_value("6")
         )
         .arg(Arg::with_name("detail")
             .help("if 1, show details")
@@ -156,7 +169,7 @@ fn main() {
     let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
     let factor1: usize = matches.value_of("factor1").unwrap().parse().unwrap();
     let factor2: usize = matches.value_of("factor2").unwrap().parse().unwrap();
-    let detail:&str = matches.value_of("detail").unwrap();
+    let detail: &str = matches.value_of("detail").unwrap();
     if cores > 0 {
         mainprimes(cores, start, stop, factor1, factor2, detail != "0");
     }
