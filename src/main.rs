@@ -19,7 +19,7 @@ use crossbeam::thread;
 use rust_iron::modules::fast_semigroup::{Fast, fast};
 use std::io::Write;
 
-fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: usize, detail: bool) {
+fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: usize, detail: bool, iterate:bool) {
     let start = task.0;
     let stop = task.1;
 
@@ -49,13 +49,20 @@ fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: 
 
         let minindex: usize = findmaxindex(&primes, skip, factor1);
         let maxindex: usize = findmaxindex(&primes, skip, factor2) + 1;
-        let stable = fast(&primes[minindex..maxindex]);
 
-        for i in (minindex + 2)..maxindex {
+
+
+        let stable = fast(&primes[minindex..maxindex]);
+        let startindex = if iterate {minindex+2} else {maxindex-1 };
+
+
+        for i in startindex..maxindex {
+
             let first: usize = (primes[skip]).clone();
             let gens: &[usize] = &primes[minindex..i];
+            if gens.len()<2 { continue };
 
-            let res2: Fast = fast(&gens);//&primes[skip..maxindex]);
+            let res2: Fast = if iterate { fast(&gens) } else { stable.clone() };//&primes[skip..maxindex]);
             let ausgabe = format!("{:8};{:8};{:8};{:4};{:4};{:8};{:8};{:8};{:8};{:8};{:8};{:8};{:10};{}\n",
                                   skip + 1, i, i - (skip + 1),
                                   factor1, factor2,
@@ -107,21 +114,24 @@ fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: 
 }
 
 
-fn mainprimes(cores: usize, start: usize, stop: usize, factor1: usize, factor2: usize, detail: bool) {
+fn mainprimes(cores: usize, start: usize, stop: usize, factor1: usize, factor2: usize, detail: bool, iterate:bool) {
     let interval = (stop - start) / cores;
     let mut tasks: Vec<(usize, usize)> = Vec::new();
     for ti in 0..cores {
         tasks.push((start + ti * interval, start + (ti + 1) * interval))
     }
 
-    let primesvec: Vec<usize> = primal::Primes::all().take(8000000).collect();
+    //let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{1==x%4}).collect();
+    //let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{3==x%4}).collect();
+    let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{x==x}).collect();
+
     let primes: &[usize] = &primesvec;
     println!("Primgruppen {:?}", tasks);
     thread::scope(|s| for task in &tasks {
         let sta = task.0;
         let sto = task.1;
         s.spawn(move |_| {
-            computation(primes, (sta, sto), factor1, factor2, detail);
+            computation(primes, (sta, sto), factor1, factor2, detail, iterate);
         });
     }).unwrap();
 }
@@ -157,10 +167,15 @@ fn main() {
             .required(true)
             .default_value("6")
         )
-        .arg(Arg::with_name("detail")
-            .help("if 1, show details")
+        .arg(Arg::with_name("iterate")
+            .help("if 1, take all intermediate semigroups p_n....p_n+k")
             .required(true)
-            .default_value("1")
+            .default_value("0")
+        )
+        .arg(Arg::with_name("detail")
+            .help("if 1, show details and comparisons")
+            .required(true)
+            .default_value("0")
         )
         .get_matches();
 
@@ -169,9 +184,10 @@ fn main() {
     let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
     let factor1: usize = matches.value_of("factor1").unwrap().parse().unwrap();
     let factor2: usize = matches.value_of("factor2").unwrap().parse().unwrap();
+    let iterate: usize = matches.value_of("iterate").unwrap().parse().unwrap();
     let detail: &str = matches.value_of("detail").unwrap();
     if cores > 0 {
-        mainprimes(cores, start, stop, factor1, factor2, detail != "0");
+        mainprimes(cores, start, stop, factor1, factor2, detail != "0", iterate != 0);
     }
     dotenv::dotenv().expect("Failed to read .env file");
     match env::var("WILFPORTs") {

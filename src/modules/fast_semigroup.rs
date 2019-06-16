@@ -1,7 +1,7 @@
 //use super::gcd_vec;
 //use std::collections::HashSet;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Fast {
     pub max_a: usize,
     pub sum_a: usize,
