@@ -19,7 +19,7 @@ use crossbeam::thread;
 use rust_iron::modules::fast_semigroup::{Fast, fast};
 use std::io::Write;
 
-fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: usize, detail: bool, iterate:bool) {
+fn computation(primes: &[usize], modul:usize, residue:usize, task: (usize, usize), factor1: usize, factor2: usize, detail: bool, iterate:bool) {
     let start = task.0;
     let stop = task.1;
 
@@ -39,8 +39,8 @@ fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: 
         }
     }
 
-    let mut out = std::fs::File::create(format!("./outinterv{}pto{}p_{}_{}.csv", factor1, factor2, start, stop)).expect("Unable to create file");
-    let head = "       n;     n+k;       k;fak1;fak2;     p_n;    p_n+1;   p_n+k;    m(S);    e(S);  #(S<F);    f(S);f(S)-3m(S); stable\n";
+    let mut out = std::fs::File::create(format!("./out_mod{}residue{},{}pto{}p_n{}to{}.csv", modul, residue, factor1, factor2, start, stop)).expect("Unable to create file");
+    let head = "       n;     n+k;       k;modul; resi;fak1;fak2;     p_n;    p_n+1;   p_n+k;    m(S);    e(S);  #(S<F);    f(S);f(S)-3m(S); stable; f/p\n";
     out.write_all(head.as_bytes()).expect("head?");
     print!("{}", head);
 
@@ -62,16 +62,21 @@ fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: 
             let gens: &[usize] = &primes[minindex..i];
             if gens.len()<2 { continue };
 
+            assert_eq!(first % modul, residue);
+
+
             let res2: Fast = if iterate { fast(&gens) } else { stable.clone() };//&primes[skip..maxindex]);
-            let ausgabe = format!("{:8};{:8};{:8};{:4};{:4};{:8};{:8};{:8};{:8};{:8};{:8};{:8};{:10};{}\n",
+            let ausgabe = format!("{:8};{:8};{:8};{:5};{:5};{:4};{:4};{:8};{:8};{:8};{:8};{:8};{:8};{:8};{:10};{};{:.6}\n",
                                   skip + 1, i, i - (skip + 1),
+                                  modul, residue,
                                   factor1, factor2,
                                   first, primes[minindex+1], primes[i - 1],
                                   res2.g1, res2.e,
-                                  res2.count_set, res2.maxgap, res2.maxgap as i64 - 3i64 * res2.g1 as i64,
+                                  res2.count_set, res2.maxgap, res2.maxgap as i64 - (res2.maxgap as i64/ res2.g1 as i64) * res2.g1 as i64,
                                   if stable.maxgap==res2.maxgap && stable.count_set==res2.count_set {
                                       "stable S"
                                   } else {""},
+                                  res2.maxgap as f64 / res2.g1 as f64,
 
             );
             print!("{}", ausgabe);
@@ -114,16 +119,14 @@ fn computation(primes: &[usize], task: (usize, usize), factor1: usize, factor2: 
 }
 
 
-fn mainprimes(cores: usize, start: usize, stop: usize, factor1: usize, factor2: usize, detail: bool, iterate:bool) {
+fn mainprimes(cores: usize, modul:usize, residue:usize, start: usize, stop: usize, factor1: usize, factor2: usize, detail: bool, iterate:bool) {
     let interval = (stop - start) / cores;
     let mut tasks: Vec<(usize, usize)> = Vec::new();
     for ti in 0..cores {
         tasks.push((start + ti * interval, start + (ti + 1) * interval))
     }
 
-    //let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{1==x%4}).collect();
-    //let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{3==x%4}).collect();
-    let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{x==x}).collect();
+    let primesvec: Vec<usize> = primal::Primes::all().take(8000000).filter(|x|{residue==x%modul}).collect();
 
     let primes: &[usize] = &primesvec;
     println!("Primgruppen {:?}", tasks);
@@ -131,7 +134,7 @@ fn mainprimes(cores: usize, start: usize, stop: usize, factor1: usize, factor2: 
         let sta = task.0;
         let sto = task.1;
         s.spawn(move |_| {
-            computation(primes, (sta, sto), factor1, factor2, detail, iterate);
+            computation(primes, modul, residue, (sta, sto), factor1, factor2, detail, iterate);
         });
     }).unwrap();
 }
@@ -144,6 +147,16 @@ fn main() {
         .about("compute frobenius")
         .arg(Arg::with_name("cores")
             .help("number of cores to use")
+            .required(true)
+            .default_value("1")
+        )
+        .arg(Arg::with_name("modul")
+            .help("the modulus, in which arithmetic progression to search")
+            .required(true)
+            .default_value("2")
+        )
+        .arg(Arg::with_name("residue")
+            .help("the residue, consider only primes congruent this mod modul")
             .required(true)
             .default_value("1")
         )
@@ -180,6 +193,8 @@ fn main() {
         .get_matches();
 
     let cores: usize = matches.value_of("cores").unwrap().parse().unwrap();
+    let modul: usize = matches.value_of("modul").unwrap().parse().unwrap();
+    let residue: usize = matches.value_of("residue").unwrap().parse().unwrap();
     let start: usize = matches.value_of("start").unwrap().parse().unwrap();
     let stop: usize = matches.value_of("stop").unwrap().parse().unwrap();
     let factor1: usize = matches.value_of("factor1").unwrap().parse().unwrap();
@@ -187,7 +202,7 @@ fn main() {
     let iterate: usize = matches.value_of("iterate").unwrap().parse().unwrap();
     let detail: &str = matches.value_of("detail").unwrap();
     if cores > 0 {
-        mainprimes(cores, start, stop, factor1, factor2, detail != "0", iterate != 0);
+        mainprimes(cores, modul, residue, start, stop, factor1, factor2, detail != "0", iterate != 0);
     }
     dotenv::dotenv().expect("Failed to read .env file");
     match env::var("WILFPORTs") {
